@@ -1,0 +1,26 @@
+
+{% load compress %}
+
+{% load static %}
+
+<header id="header" class="flex items-center justify-between min-h-10 w-full shadow p-4 fixed left-0 top-0 z-100">
+    <a href="{% url 'home' %}" class="flex items-center gap-1">
+      <img src="{% static 'assets/images/favicon3.ico' %}" alt="Logo">
+      <strong class="text-design uppercase text-2xl font-semibold ">Edidiong</strong>  
+    </a>
+    <div class="flex items-center gap-1">
+      <span class="text-2xl text-slate-500 font-semibold"><i class='bx bx-phone'></i></span>
+      <p class="font-semibold">+234 (0) 702 626 6495</p>
+    </div>
+    <div class="navLinks gap-4">
+      <a href="{% url 'signup' %}"><i class='bx bxs-lock text-2xl text-slate-500 hover:text-teal-400 font-semibold' title="Signup"></i></a> 
+       <a href="{% url 'login' %}"><i class='bx bx-log-in text-2xl text-slate-500 hover:text-teal-400 font-semibold' title="Login"></i></a> 
+       <a href="{% url 'logout' %}"><i class='bx bx-log-out text-2xl text-slate-500 hover:text-teal-400 font-semibold' title="Logout"></i></a> 
+    </div>
+</header>
+
+
+    
+    
+
+    

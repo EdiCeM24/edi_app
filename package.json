@@ -1,0 +1,19 @@
+{
+  "name": "edi_app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx @tailwindcss/cli -i ./static/src/input.css -o ./static/src/output.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "flowbite": "^3.1.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.15",
+    "tailwindcss": "^4.0.15"
+  }
+}

@@ -1,0 +1,52 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+
+
+{% block content %}
+  <div class="container overflow-hidden flex items-center justify-start gap-16 py-24">
+        <div class="sidebar overflow-hidden">
+            <ul id="sidebar-contents gap-3 p-16 mx-auto overflow-hidden">
+                <li class="gap-3 mt-6 mb-4 hover:bg-blue-600 hover:text-white rounded-full"><a href="{% url 'home' %}" class='active hover:bg-blue-600 rounded-full overflow-hidden'><i class='bx bx-home bg-green-200 rounded-full text-2xl items-center justify-center p-2  font-semibold w-10 h-10'></i> <span class="gap-3 items-center justify-center p-2 cursor-pointer hover:text-white hover:opacity-100 ">Home</span></a></li>
+                <li class="gap-3 mt-6 mb-4 hover:bg-blue-600 hover:text-white rounded-full"><a href="{% url 'about' %}" class=' hover:bg-blue-600 rounded-full overflow-hidden'><i class='bx bx-user bg-green-200 rounded-full text-2xl items-center justify-center p-2  font-semibold w-10 h-10'></i> <span class="gap-3 items-center justify-center p-2 cursor-pointer hover:text-white hover:opacity-100 ">About</span></a></li>
+                <li class="gap-3 mt-6 mb-4 hover:bg-blue-600 hover:text-white rounded-full"><a href="{% url 'resume' %}" class=' hover:bg-blue-600 rounded-full overflow-hidden'><i class='bx bx-file bg-green-200 rounded-full text-2xl items-center justify-center p-2  font-semibold w-10 h-10'></i> <span class="gap-3 items-center justify-center p-2 cursor-pointer hover:text-white hover:opacity-100 ">Resume</span></a></li>
+                <li class="gap-3 mt-6 mb-4 hover:bg-blue-600 hover:text-white rounded-full"><a href="{% url 'port-folio' %}" class=' hover:bg-blue-600 rounded-full overflow-hidden'><i class='bx bx-photo-album bg-green-200 rounded-full text-2xl items-center justify-center p-2  font-semibold w-10 h-10'></i> <span class="gap-3 items-center justify-center p-2 cursor-pointer hover:text-white hover:opacity-100 ">Portfolio</span></a></li>
+                <li class="gap-3 mt-6 mb-4 hover:bg-blue-600 hover:text-white rounded-full"><a href="{% url 'services' %}" class=' hover:bg-blue-600 rounded-full overflow-hidden'><i class='bx bx-server bg-green-200 rounded-full text-2xl items-center justify-center p-2  font-semibold w-10 h-10'></i> <span class="gap-3 items-center justify-center p-2 cursor-pointer hover:text-white hover:opacity-100 ">Services</span></a></li>
+                <li class="gap-3 mt-6 mb-4 hover:bg-blue-600 hover:text-white rounded-full"><a href="{% url 'contact' %}" class=' hover:bg-blue-600 rounded-full overflow-hidden'><i class='bx bx-envelope bg-green-200 rounded-full text-2xl items-center justify-center p-2  font-semibold w-10 h-10'></i></i> <span class="gap-3 items-center justify-center p-2 cursor-pointer hover:text-white hover:opacity-100 ">Contact</span></a></li>
+            </ul> 
+        </div>
+
+        <div class="contents">
+            <div class="box-container py-8 px-8 p-8 mb-8">
+                <p class="mb-[10%] font-semibold">Hello!</p>
+
+                <h1 class="text-4xl font-semibold mb-10">Marcus Edidiong Cletus</h1>
+                
+                <div class="mt-10 mb-10 mr-8">
+                  <span class="text-container text-xl font-semibold "></span>
+                </div>
+                
+                <div class="social-links mt-10 gap-10 font-semibold">
+                   <a href="#"><i class='bx bxl-github text-3xl rounded-full w-12 h-12 bg-green-100 p-2 hover:text-fuchsia-600'></i></a> 
+                   <a href="#"><i class='bx bxl-twitter text-3xl rounded-full w-12 h-12 bg-green-100 p-2 hover:text-fuchsia-600'></i></a> 
+                   <a href="#"><i class='bx bxl-instagram text-3xl rounded-full w-12 h-12 bg-green-100 p-2 hover:text-fuchsia-600'></i></a> 
+                   <a href="#"><i class='bx bxl-facebook text-3xl rounded-full w-12 h-12 bg-green-100 p-2 hover:text-fuchsia-600 text-black'></i></a>
+                   <a href="#"><i class='bx bxl-linkedin text-3xl rounded-full w-12 h-12 bg-green-100 p-2 hover:text-fuchsia-600'></i></a> 
+                </div>
+            </div>
+           
+           <article class="photo mb-8">
+             <img src="" alt="Photo">
+
+             <p>Edi_Mars</p>
+           </article>
+        </div>
+
+    
+    
+    
+    
+    
+  </div>
+{% endblock content %}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+{% load compress %}
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon3.ico' %}" type="image/x-icon">
+    <title>Edidiong</title>
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.1/css/boxicons.min.css" integrity="sha512-QFPgv160B7hqiaf+HdW6HkJZ53DHQOlpraV98UdNAqU7h30lWu/bYwg/rTceL/l5P1U18IcQKkyAmtUX872qHQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+<body class="bg-green-50">
+
+    <header>
+        {% include 'includes/nav.html' %} 
+    </header>
+
+    <div class="container mx-auto mt-4">
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+
+    <header>
+        {% include 'includes/footer.html' %} 
+    </header>
+    <script src="{% static 'scripts/js/app.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.1/dist/boxicons.js" integrity="sha512-YYqDo9RDiFmWWI2HdJ+DX7TMh3DWkbAmiXR9R9vAoKXX983Yl1mTfZ3eY9BdajtaCA3lAtgNhwSwkagWV32enQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
