@@ -1,2 +1,148 @@
-<h1>RESUME PAGE</h1>
-<a href="{% url 'home' %}"></a>
+{% extends 'main/base.html' %}
+
+{% load compress %}
+
+{% load static %}
+
+{% block title %} |Resume {% endblock title %}
+
+
+
+{% block content %}
+   <div class="resume flex flex-col p-4 items-center justify-center mt-20">
+     <div class="flex items-center justify-center mt-[5%] gap-1 text-3xl text-blue-600 cursor-pointer mb-4">
+        <span class="text border-gray-500 flex"><i class="uil uil-angle-right"></i></span>
+         <span><i class="uil uil-file-alt"></i></span>
+         <h2>Resume</h2>
+     </div>
+
+     <div class="mt-[3%] mb-8 text-center justify-center">
+       <p class="container text-xl font-semibold font-sans">
+         This has been the true about my devoted and dedicated achievements
+          that actually made me to strived in order to have the best moment 
+          of my life through much impact hoping to contribute in my successful 
+          careers and achievements in every aspect of endeavors that will come
+           or be an opportunity seeking.
+       </p>
+     </div>
+
+   
+
+      <div class="flex flex-col mt-10 mb-8">
+         <strong class="justify-start text-3xl font-semibold mb-4">Summary</strong>
+         <article class="flex text-center justify-center">
+            <h1 class="text-3xl text-white rounded-lg font-semibold bg-blue-800 px-4 py-4">Marcus Edidiong Cletus</h1>
+         </article>
+
+         <section>
+            <p class="text-xl font-semibold text-justify justify-start mt-2 p-8">
+               Innovative and deadline-driven Web Developer with 3<sup>+</sup> years of experience developing and deploying for production; making sure that clients' satisfaction is achieved.
+            </p>
+
+            <div class="flex flex-col p-4">
+               <span class="flex items-center gap-1 text-xl font-medium mb-2"><i class="uil uil-user-location text-blue-500 text-2xl"></i> <p class="text-2xl font-medium">Nigeria, Akwa Ibom State, Ika</p></span>
+               <span class="flex items-center gap-1 text-xl font-medium mb-2"><i class='bx bxl-whatsapp text-blue-500 text-2xl'></i> <p class="text-2xl font-medium">+234 (0) 812 425 3772</p></span>
+               <span class="flex items-center gap-1 text-xl font-medium mb-2"><i class='bx bx-at text-blue-500 text-2xl'></i> <p class="text-2xl font-medium">xevious077@gmail.com</p></span>
+            </div>
+         </section>
+
+         <section class="mt-10">
+            <strong class="justify-start text-3xl font-semibold mb-4">Skills</strong>
+            <ul class="flex p-4 flex-wrap justify-center gap-2 text-xl">
+               <li>HTML,</li>
+               <li>CSS,</li>
+               <li>JavaScript,</li>
+               <li>React js,</li>
+               <li>Next js,</li>
+               <li>Node js,</li>
+               <li>Python,</li>
+               <li>Django,</li>
+               <li>MySQL,</li>
+               <li>PostgreSQL,</li>
+               <li>MongoDB,</li>
+               <li>Git,</li>
+               <li>Unit Testing,</li>
+               <li>End-to-End Testing,</li>
+               <li>and</li>
+               <li>Responsive Web Design</li>
+            </ul>
+         </section>      
+      </div>
+
+      <section class="flex flex-col mt-10 mb-8">
+
+         <h2 class="text-3xl font-semibold">Education</h2>
+         <div class="flex items-center justify-between gap-4 mt-4 mb-4">
+            
+            <div class="flex flex-col items-center justify-between gap-4 mt-4 mb-4">
+               
+               <div class="flex flex-col p-4">
+                  <strong>POSTGRADUATE OF COMPUTER SCIENCE</strong>
+                  <span>2025 - present</span>
+   
+                  <p class="w-[40%]">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dolore vel odio necessitatibus, cum dolorem soluta? 
+                  </p>
+               </div>
+   
+               <div class="flex flex-col p-4">
+                   <strong>FEDERAL POLYTECHNIC, NEKEDE, IMO STATE</strong>
+                   <span>Higher National Diploma in Computer Science</span>
+                   <span>2018 - 2023</span>
+                   <p class="w-[40%]">
+                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis amet, dicta aspernatur voluptatem tempora dolores voluptas. 
+                   </p>
+               </div>
+   
+            </div>
+   
+            <div class="-mt-[16%] text-justify justify-start w-[60%]">
+               <h2 class="text-xl font-semibold mb-1">Professional Experience</h2>
+   
+               <div class="p-6 text-base -ml-3">
+                  <strong class="">JUNIOR WEB DEVELOPER</strong>
+                  <span>2022 - 2023</span>
+                  <p>Integrated Oasis Technology, Imo State, Nigeria.</p>
+                  <ul>
+                     <li></li>
+                     <li></li>
+                     <li></li>
+                     <li></li>
+                  </ul>
+               </div>
+   
+               <div class="text-base">
+                  <strong>JUNIOR MOBILE APP DEVELOPER</strong>
+                  <span>2023 - present</span>
+                  <p>Integrated Oasis Technology, Imo State, Nigeria.</p>
+               
+                  <ul>
+                     <li></li>
+                     <li></li>
+                     <li></li>
+                     <li></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </section>
+
+
+      <i class='bx bxs-graduation'></i>
+      <i class='bx bxs-school' style='color:#000'></i>
+      
+      <i class='bx bxs-image-alt'></i>
+      <i class='bx bx-arrow-to-bottom'></i>
+      <i class='bx bxs-videos'></i>
+      <i class='bx bx-book-reader'></i>
+      <i class='bx bxs-printer'></i>
+      <i class='bx bxs-heart'></i>
+      <i class='bx bx-message-square-add text-black'></i>
+      <i class='bx bxs-download'></i>
+      <i class='bx bxs-certification'></i>
+                  <i class='bx bx-at'></i>
+                  <i class='bx bx-code-alt'></i>
+      <i class='bx bxs-graduation'></i>
+
+   </div>    
+{% endblock content %}

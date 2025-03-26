@@ -1,3 +1,16 @@
-<h1>PORTFOLIO PAGE</h1>
+{% extends 'main/base.html' %}
 
-<a href="{% url 'home' %}">Home</a>
+{% load compress %}
+
+{% load static %}
+
+{% block title %} |Portfolio {% endblock title %}
+
+
+
+{% block content %}
+   <div class="flex mt-40">
+     <h2>Portfolio</h2>
+
+   </div>
+{% endblock content %}

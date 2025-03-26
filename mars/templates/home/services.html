@@ -1,2 +1,16 @@
-<h1>SERVICES PAGE</h1>
-<a href="{% url 'home' %}"></a>
+{% extends 'main/base.html' %}
+
+{% load compress %}
+
+{% load static %}
+
+{% block title %} |Services {% endblock title %}
+
+
+
+{% block content %}
+   <div class="flex mt-40">
+     <h2>Services</h2>
+
+   </div>
+{% endblock content %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import auth
+from .models import Skill
 
 
 
@@ -8,7 +9,17 @@ def home(request):
 
 
 def about(request):
-    return render(request, 'home/about.html')
+    labels = []
+    data = []
+    product = Skill.objects.order_by('numInPercentage')[:9]
+    for skills in product:
+        labels.append(skills.name)
+        data.append(skills.numInPercentage)
+    return render(request, 'home/about.html', {
+        'product': product,
+        'labels': labels,
+        'data': data
+    })
 
 
 def contact(request):

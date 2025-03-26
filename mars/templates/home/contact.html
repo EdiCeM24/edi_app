@@ -1,2 +1,21 @@
-<h1>CONTACT PAGE</h1>
-<a href="{% url 'home' %}"></a>
+{% extends 'main/base.html' %}
+
+{% load compress %}
+
+{% load static %}
+
+{% block title %} |Contact {% endblock title %}
+
+
+
+{% block content %}
+   <div class="flex mt-40">
+     <h2>Contact Me</h2>
+     <span class="absolute top-15 left-0"><i class='bx bxs-envelope text-teal-600 text-2xl font-semibold'></i></span>
+     <span class="absolute top-15 left-0"><i class='bx bx-user text-teal-600 text-2xl font-semibold'></i></span>
+     
+     <i class='bx bx-phone'></i>
+     <i class='bx bxs-contact'></i>
+     <i class='bx bxl-whatsapp'></i>
+   </div>
+{% endblock content %}

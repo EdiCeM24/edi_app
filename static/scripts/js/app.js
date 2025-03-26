@@ -1,5 +1,4 @@
 
-
 const containerEl = document.querySelector('.text-container');
 
 const careers = ["Full Stack Web Developer", "Mobile App Developer", "Freelancer", "Instructor"];
@@ -26,3 +25,6 @@ function updateText() {
     }
     setTimeout(updateText, 400);
 }
+
+
+

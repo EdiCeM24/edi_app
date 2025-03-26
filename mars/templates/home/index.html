@@ -1,45 +1,47 @@
 {% extends 'main/base.html' %}
 
+{% load compress %}
+
 {% load static %}
 
 
 
 {% block content %}
-  <div class="container overflow-hidden flex items-center justify-start gap-16 py-24">
-        <div class="sidebar overflow-hidden">
-            <ul id="sidebar-contents gap-3 p-16 mx-auto overflow-hidden">
-                <li class="gap-3 mt-6 mb-4 hover:bg-blue-600 hover:text-white rounded-full"><a href="{% url 'home' %}" class='active hover:bg-blue-600 rounded-full overflow-hidden'><i class='bx bx-home bg-green-200 rounded-full text-2xl items-center justify-center p-2  font-semibold w-10 h-10'></i> <span class="gap-3 items-center justify-center p-2 cursor-pointer hover:text-white hover:opacity-100 ">Home</span></a></li>
-                <li class="gap-3 mt-6 mb-4 hover:bg-blue-600 hover:text-white rounded-full"><a href="{% url 'about' %}" class=' hover:bg-blue-600 rounded-full overflow-hidden'><i class='bx bx-user bg-green-200 rounded-full text-2xl items-center justify-center p-2  font-semibold w-10 h-10'></i> <span class="gap-3 items-center justify-center p-2 cursor-pointer hover:text-white hover:opacity-100 ">About</span></a></li>
-                <li class="gap-3 mt-6 mb-4 hover:bg-blue-600 hover:text-white rounded-full"><a href="{% url 'resume' %}" class=' hover:bg-blue-600 rounded-full overflow-hidden'><i class='bx bx-file bg-green-200 rounded-full text-2xl items-center justify-center p-2  font-semibold w-10 h-10'></i> <span class="gap-3 items-center justify-center p-2 cursor-pointer hover:text-white hover:opacity-100 ">Resume</span></a></li>
-                <li class="gap-3 mt-6 mb-4 hover:bg-blue-600 hover:text-white rounded-full"><a href="{% url 'port-folio' %}" class=' hover:bg-blue-600 rounded-full overflow-hidden'><i class='bx bx-photo-album bg-green-200 rounded-full text-2xl items-center justify-center p-2  font-semibold w-10 h-10'></i> <span class="gap-3 items-center justify-center p-2 cursor-pointer hover:text-white hover:opacity-100 ">Portfolio</span></a></li>
-                <li class="gap-3 mt-6 mb-4 hover:bg-blue-600 hover:text-white rounded-full"><a href="{% url 'services' %}" class=' hover:bg-blue-600 rounded-full overflow-hidden'><i class='bx bx-server bg-green-200 rounded-full text-2xl items-center justify-center p-2  font-semibold w-10 h-10'></i> <span class="gap-3 items-center justify-center p-2 cursor-pointer hover:text-white hover:opacity-100 ">Services</span></a></li>
-                <li class="gap-3 mt-6 mb-4 hover:bg-blue-600 hover:text-white rounded-full"><a href="{% url 'contact' %}" class=' hover:bg-blue-600 rounded-full overflow-hidden'><i class='bx bx-envelope bg-green-200 rounded-full text-2xl items-center justify-center p-2  font-semibold w-10 h-10'></i></i> <span class="gap-3 items-center justify-center p-2 cursor-pointer hover:text-white hover:opacity-100 ">Contact</span></a></li>
+  <div class="container overflow-hidden flex items-center relative top-10 justify-start gap-16 py-24">
+        <div class="sidebar -mt-[10%] overflow-hidden fixed z-50">
+            <ul id="sidebar-contents gap-3 p-8 -ml-[20%] mx-auto overflow-hidden">
+                <li class="gap-3 mt-6 mb-4 hover:bg-blue-600 hover:text-white rounded-full"><a href="{% url 'home' %}" class='active hover:bg-blue-600 rounded-full overflow-hidden'><i class='bx bx-home bg-green-200 focus:ring-4 focus:ring-blue-300 hover:bg-blue-600 rounded-full text-2xl items-center justify-center p-2 font-semibold w-10 h-10'></i> <span class="gap-3 items-center justify-center p-1 overflow-hidden cursor-pointer hover:text-white hover:opacity-100 text-green-50">Home</span></a></li>
+                <li class="gap-3 mt-6 mb-4 hover:bg-blue-600 hover:text-white rounded-full"><a href="{% url 'about' %}" class=' hover:bg-blue-600 rounded-full overflow-hidden'><i class='bx bx-user bg-green-200 hover:bg-blue-600 rounded-full text-2xl items-center justify-center p-2 font-semibold w-10 h-10'></i> <span class="gap-3 items-center justify-center p-1 overflow-hidden cursor-pointer hover:text-white hover:opacity-100 text-green-50 ">About</span></a></li>
+                <li class="gap-3 mt-6 mb-4 hover:bg-blue-600 hover:text-white rounded-full"><a href="{% url 'resume' %}" class=' hover:bg-blue-600 rounded-full overflow-hidden'><i class='bx bx-file bg-green-200 hover:bg-blue-600 rounded-full text-2xl items-center justify-center p-2 font-semibold w-10 h-10'></i> <span class="gap-3 items-center justify-center p-1 overflow-hidden cursor-pointer hover:text-white hover:opacity-100 text-green-50 ">Resume</span></a></li>
+                <li class="gap-3 mt-6 mb-4 hover:bg-blue-600 hover:text-white rounded-full"><a href="{% url 'port-folio' %}" class=' hover:bg-blue-600 rounded-full overflow-hidden'><i class='bx bx-photo-album bg-green-200 hover:bg-blue-600 rounded-full text-2xl items-center justify-center p-2 font-semibold w-10 h-10'></i> <span class="gap-3 items-center justify-center p-1 overflow-hidden cursor-pointer hover:text-white hover:opacity-100 text-green-50 ">Portfolio</span></a></li>
+                <li class="gap-3 mt-6 mb-4 hover:bg-blue-600 hover:text-white rounded-full"><a href="{% url 'services' %}" class=' hover:bg-blue-600 rounded-full overflow-hidden'><i class='bx bx-server bg-green-200 hover:bg-blue-600 rounded-full text-2xl items-center justify-center p-2 font-semibold w-10 h-10'></i> <span class="gap-3 items-center justify-center p-1 overflow-hidden cursor-pointer hover:text-white hover:opacity-100 text-green-50 ">Services</span></a></li>
+                <li class="gap-3 mt-6 mb-4 hover:bg-blue-600 hover:text-white rounded-full"><a href="{% url 'contact' %}" class=' hover:bg-blue-600 rounded-full overflow-hidden'><i class='bx bx-envelope bg-green-200 hover:bg-blue-600 rounded-full text-2xl items-center justify-center p-2 font-semibold w-10 h-10'></i></i> <span class="gap-3 items-center justify-center p-1 overflow-hidden cursor-pointer hover:text-white hover:opacity-100 text-green-50">Contact</span></a></li>
             </ul> 
         </div>
 
-        <div class="contents">
-            <div class="box-container py-8 px-8 p-8 mb-8">
+        <div class="contents ml-[20%]">
+            <div class="box-container mt-[4%] ml-[14%] top-20 py-8 px-8 p-8 mb-8">
                 <p class="mb-[10%] font-semibold">Hello!</p>
 
-                <h1 class="text-4xl font-semibold mb-10">Marcus Edidiong Cletus</h1>
+                <h1 class="texts text-3xl flex-nowrap font-semibold mb-10">Marcus Edidiong Cletus</h1>
                 
-                <div class="mt-10 mb-10 mr-8">
+                <div class="mt-10 mb-10 mr-6">
                   <span class="text-container text-xl font-semibold "></span>
                 </div>
                 
                 <div class="social-links mt-10 gap-10 font-semibold">
-                   <a href="#"><i class='bx bxl-github text-3xl rounded-full w-12 h-12 bg-green-100 p-2 hover:text-fuchsia-600'></i></a> 
-                   <a href="#"><i class='bx bxl-twitter text-3xl rounded-full w-12 h-12 bg-green-100 p-2 hover:text-fuchsia-600'></i></a> 
-                   <a href="#"><i class='bx bxl-instagram text-3xl rounded-full w-12 h-12 bg-green-100 p-2 hover:text-fuchsia-600'></i></a> 
-                   <a href="#"><i class='bx bxl-facebook text-3xl rounded-full w-12 h-12 bg-green-100 p-2 hover:text-fuchsia-600 text-black'></i></a>
-                   <a href="#"><i class='bx bxl-linkedin text-3xl rounded-full w-12 h-12 bg-green-100 p-2 hover:text-fuchsia-600'></i></a> 
+                   <a href="https://github.com/EdiCeM24"><i class='bx bxl-github text-3xl rounded-full w-12 h-12 bg-green-100 p-2 hover:text-fuchsia-600'></i></a> 
+                   <a href="https://twitter.com/edi_cem24"><i class='bx bxl-twitter text-3xl rounded-full w-12 h-12 bg-green-100 p-2 hover:text-fuchsia-600'></i></a> 
+                   <a href="https://instagram.com/Edi_CeM24"><i class='bx bxl-instagram text-3xl rounded-full w-12 h-12 bg-green-100 p-2 hover:text-fuchsia-600'></i></a> 
+                   <a href="https://facebook.com/Edidiong Cletus Marcus"><i class='bx bxl-facebook text-3xl rounded-full w-12 h-12 bg-green-100 p-2 hover:text-fuchsia-600 text-black'></i></a>
+                   <a href="https://linkedin.com/in/cletus-marcus"><i class='bx bxl-linkedin text-3xl rounded-full w-12 h-12 bg-green-100 p-2 hover:text-fuchsia-600'></i></a> 
                 </div>
             </div>
            
-           <article class="photo mb-8">
-             <img src="" alt="Photo">
-
-             <p>Edi_Mars</p>
+           <article class="photo mt-10 mb-8 top-0 right-0 ml-0">
+             <img class="items-end w-[80%] cursor-pointer hover:sepia-50 rounded-lg bg-cover bg-right bg-local" src="{% static 'assets/images/Cletus.jpg' %}" alt="Photo">
+             <div class="sepia-50"></div>
+             <p class="mt-4 font-semibold text-base text-sky-500">Edi_Mars</p>
            </article>
         </div>
 
