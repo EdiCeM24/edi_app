@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import auth
-from .models import Skill
+from .models import Skill, About, Portfolio, Services
 
 
 
@@ -15,10 +15,15 @@ def about(request):
     for skills in product:
         labels.append(skills.name)
         data.append(skills.numInPercentage)
+        
+    products = About.objects.all() 
+       
+    
     return render(request, 'home/about.html', {
         'product': product,
         'labels': labels,
-        'data': data
+        'data': data,
+        'products': products
     })
 
 
@@ -35,7 +40,10 @@ def login(request):
 
 
 def portfolio(request):
-    return render(request, 'home/portfolio.html')
+    ports = Portfolio.objects.all()
+    return render(request, 'home/portfolio.html', {
+        'ports': ports,
+    })
 
 
 def resume(request):
@@ -43,7 +51,10 @@ def resume(request):
 
 
 def services(request):
-    return render(request, 'home/services.html')
+    served = Services.objects.all()
+    return render(request, 'home/services.html', {
+        'served': served,
+    })
 
 
 def forgotPassword(request):

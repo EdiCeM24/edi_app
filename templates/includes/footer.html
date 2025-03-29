@@ -1,28 +1,32 @@
-<footer class="p-10 bg-blue-300 ">
-    <div class="grid grid-cols-3 items-center justify-center ml-10">
-       <div class="block">
-          <h3>Edidiong</h3>
-          <span class="flex flex-col">
-            <a href="#">Full stack Developer</a>
-            <a href="#">Full stack Developer</a>
-            <a href="#">Full stack Developer</a>
-          </span>
-       </div>
-       <div class="block">
-          <h3>Edidiong</h3>
-          <span class="flex flex-col">
-            <a href="#">Full stack Developer</a>
-            <a href="#">Full stack Developer</a>
-            <a href="#">Full stack Developer</a>
-          </span>
-       </div>
-       <div class="block">
-          <h3>Edidiong</h3>
-          <span class="flex flex-col">
-            <a href="#">Full stack Developer</a>
-            <a href="#">Full stack Developer</a>
-            <a href="#">Full stack Developer</a>
-          </span>
-       </div>
-    </div>
+<footer class="p-10 bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500">
+   <div class="grid grid-cols-3 items-center justify-center ml-10">
+      <div class="block">
+         <h3 class="text-white">Edidiong</h3>
+         <span class="flex flex-col">
+            <a class="text-gray-200 text-base" href="#">Full stack Developer</a>
+            <a class="text-gray-200 text-base" href="#">Mobile App Developer</a>
+            <a class="text-gray-200 text-base" href="#">Graphic Designer and Instructor</a>
+         </span>
+      </div>
+      <div class="block">
+         <h3 class="text-white">Home</h3>
+         <span class="flex flex-col">
+            <a class="text-gray-200 text-base" href="{% url 'about' %}">About</a>
+            <a class="text-gray-200 text-base" href="{% url 'resume' %}">Resume</a>
+            <a class="text-gray-200 text-base" href="{% url 'contact' %}">Contact</a>
+         </span>
+      </div>
+      <div class="block">
+         <h3 class="text-white">Condition Of Services</h3>
+         <span class="flex flex-col">
+            <a class="text-gray-200 text-base" href="#">Term Of Use</a>
+            <a class="text-gray-200 text-base" href="#">Privacy Policy</a>
+            <a class="text-gray-200 text-base" href="#">Feedback</a>
+         </span>
+      </div>
+   </div>
+
+   <div class="bg-gray-300 mt-10 mb-6">
+      <p class="flex flex-nowrap text-center text-balance hover:text-blue-800 transition duration-100 delay-75 justify-center">All rights reserved @ <script>document.writeln(new Date().getFullYear());</script> <span class="gap-2 ml-2 text-blue-700">Marcus Edidiong Cletus</span></p>
+   </div>
 </footer>

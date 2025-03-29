@@ -37,6 +37,7 @@ body {
     z-index: 100;
 }
 
+
 /** ABOUT PAGE CHART SECTION **/
 #myChart {
     font-size: 2rem;
@@ -44,7 +45,13 @@ body {
     text-align: center;
     justify-content: center;
 }
-
+.h2-text {
+    text-shadow: 0px 5px 10px rgba(233, 199, 199, 0.6);
+}
+.open {
+    display: block;
+    visibility: visible;
+}
 /** BREAKPOINTS **/
 
 /** MOBILE PHONE **/
