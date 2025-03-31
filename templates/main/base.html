@@ -15,7 +15,7 @@
     {% endcompress %}
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.1/css/boxicons.min.css" integrity="sha512-QFPgv160B7hqiaf+HdW6HkJZ53DHQOlpraV98UdNAqU7h30lWu/bYwg/rTceL/l5P1U18IcQKkyAmtUX872qHQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body class="bg-green-50 box-border p-4">
 
@@ -23,7 +23,7 @@
         {% include 'includes/nav.html' %} 
     </header>
 
-    <div class="container mx-auto mt-4">
+    <div class="container mx-auto mt-4 overflow-hidden">
         {% block content %}
 
         {% endblock content %}
@@ -35,7 +35,7 @@
     
       
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
       <script>
         const ctx = document.getElementById('myChart');
       

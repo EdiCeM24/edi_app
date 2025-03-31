@@ -61,6 +61,18 @@ def forgotPassword(request):
     return render(request, 'home/forgot.html')
 
 
+def feedBack(request):
+    return render(request, 'home/feed-back.html')
+
+
+def private(request):
+    return render(request, 'home/private.html')
+
+
+def terms(request):
+    return render(request, 'home/terms.html')
+
+
 def logout(request):
     auth.logout(request)
     return redirect('/login')

@@ -13,5 +13,21 @@
      <h2>Services</h2>
       
      <i class='bx bxs-download'></i>
+
+     <section class="flex items-center justify-center">
+        <span class="flex items-center invisible in-focus-visible:visited:enabled:open:top-9/12 justify-center cursor-pointer"><i class='bx bxs-image-alt pics-open text-4xl text-red-400 bg-blue-200 rounded-full p-4' title="View"></i></span>
+        <div class="photo-open grid grid-cols-3 items-center justify-center gap-2 py-4s">
+          
+          {% for product in products %}
+              <div class="ml-[40%] items-center justify-center">
+                <img class="gap-1 max-h-1/2 block items-center justify-center" src="{{ product.image.url }}" alt="Products">
+                <p class="p-2 text-xl text-justify">{{ product.title }}</p>
+                <span class="p-1 text-pretty">{{ product.description }}</span>
+                <span class="text-base block ml-2">{{ product.created_at }}</span>
+              </div>
+          {% endfor %}
+        </div>
+     </section>
    </div>
+   <script src="{% static 'scripts/js/services.js' %}"></script>
 {% endblock content %}
