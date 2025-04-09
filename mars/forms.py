@@ -25,16 +25,15 @@ class LoginForm(AuthenticationForm):
 class ContactForm(forms.Form):
     class Meta:
         model = User
-        fields = ['name', 'username', 'email', 'phone_number', 'subject', 'message']
+        fields = ['name', 'email', 'phone_number', 'subject', 'message']
         
         fname = forms.CharField(widget=forms.TextInput())
         lname = forms.CharField(widget=forms.TextInput())
-        username = forms.CharField(widget=forms.TextInput())
         email = forms.CharField(widget=forms.EmailInput())
         phone_number = PhoneNumberField(region='NG')
         subject = forms.CharField(widget=forms.TextInput())
-        website = forms.CharField(widget=forms.TextInput())
-        message = forms.CharField(widget=forms.Textarea())  
+        website = forms.CharField(widget=forms.URLField())
         company_name = forms.CharField(widget=forms.TextInput())
+        message = forms.CharField(widget=forms.Textarea())  
         
             

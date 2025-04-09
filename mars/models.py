@@ -28,7 +28,7 @@ class Portfolio(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return self.title
+        return self.caption
     
     
 class Services(models.Model):
@@ -38,7 +38,7 @@ class Services(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return self.title
     
     
 class SignupForm(models.Model):
@@ -48,22 +48,20 @@ class SignupForm(models.Model):
     email = models.EmailField()
     
     def __str__(self):
-        return self.name    
+        return self.fname    
     
     
 class Contact(models.Model):
     fname = models.CharField(max_length=100, blank=True, null=True) 
     lname = models.CharField(max_length=100, blank=True, null=True) 
-    username = models.CharField(max_length=40)
     email = models.EmailField()
-    phone_regex = RegexValidator(regex=r'^\+?1?\d{9, 15}$', message="Phone number must be entered in the format: '+23480309999999'. Up to 15 digits is allowed.")
+    phone_regex = RegexValidator(regex=r'^\+?1?\d{9, 15}$', message="Phone number must be entered in the format: '+234 803 099 9999'. Up to 15 digits is allowed.")
     phone_number = PhoneNumberField(validators=[phone_regex], max_length=15, blank=False)
     subject = models.CharField(max_length=50)
     website = models.CharField(max_length=100, blank=True, null=True)
-    message = models.TextField()
     company_name = models.CharField(max_length=255, blank=True, null=True)
-    
+    message = models.TextField()
     def __str__(self):
-        return self.name    
+        return self.fname    
     
     

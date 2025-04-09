@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "My Business Portfolio",
   "dependencies": {
+    "bootstrap": "^5.3.5",
     "flowbite": "^3.1.2",
     "typed.js": "^2.1.0"
   },

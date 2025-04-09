@@ -4,7 +4,7 @@ from .models import Contact, Skill, About, Portfolio, SignupForm, Services
 
 
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ('fname', 'lname', 'username', 'email', 'phone_number', 'subject', 'message', 'company_name')
+    list_display = ('fname', 'lname', 'email', 'phone_number', 'subject', 'company_name', 'website', 'message')
     
     
 class SkillAdmin(admin.ModelAdmin):

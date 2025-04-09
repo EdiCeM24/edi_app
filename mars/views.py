@@ -3,6 +3,8 @@ from django.contrib.auth.models import auth
 from .models import Skill, About, Portfolio, Services
 from . models import Contact
 from django.http import HttpResponse
+#from apps.userprofile.models import Profile
+from django.contrib import messages
 
 
 def home(request):
@@ -29,9 +31,7 @@ def about(request):
 
 
 def contact(request):
-    msg = Contact.objects.all()
-    context = {'msg': msg}
-    
+   
     if request.method == "POST":
         
        contacts = Contact()
@@ -40,34 +40,34 @@ def contact(request):
     
        fname = request.POST.get('fname')
        lname = request.POST.get('lname')
-       username = request.POST.get('username')
        email = request.POST.get('email')
        phone_number = request.POST.get('phone_number')
        subject = request.POST.get('subject')
        website = request.POST.get('website')
        message = request.POST.get('message')
-       company = request.POST.get('company')
+       company_name = request.POST.get('company_name')
        
        contacts.fname = fname
        contacts.lname = lname
-       contacts.username = username
        contacts.email = email
        contacts.phone_number = phone_number
        contacts.subject = subject
        contacts.website = website
        contacts.message = message
-       contacts.company = company
+       contacts.company_name = company_name
        
        
        
        # here you can create validation for the contact form.
        
            
-           
+       messages.success(request, 'Your message has been submitted successfully. Thanks!') 
+          
        contacts.save()
-       return HttpResponse('<h2 target="_blank">Thanks for contacted us!</h2>')
+       return redirect('home')
+    #    return HttpResponse('<h2 target="_blank">Thanks for contacted us!</h2>')
        
-    return render(request, 'home/contact.html', {}, context=context)
+    return render(request, 'home/contact.html', {})
    
 
 
