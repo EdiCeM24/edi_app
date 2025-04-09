@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import auth
 from .models import Skill, About, Portfolio, Services
-
+from . models import Contact
+from django.http import HttpResponse
 
 
 def home(request):
@@ -28,7 +29,46 @@ def about(request):
 
 
 def contact(request):
-    return render(request, 'home/contact.html')
+    msg = Contact.objects.all()
+    context = {'msg': msg}
+    
+    if request.method == "POST":
+        
+       contacts = Contact()
+       
+       #contacts = ContactForm(request.POST)
+    
+       fname = request.POST.get('fname')
+       lname = request.POST.get('lname')
+       username = request.POST.get('username')
+       email = request.POST.get('email')
+       phone_number = request.POST.get('phone_number')
+       subject = request.POST.get('subject')
+       website = request.POST.get('website')
+       message = request.POST.get('message')
+       company = request.POST.get('company')
+       
+       contacts.fname = fname
+       contacts.lname = lname
+       contacts.username = username
+       contacts.email = email
+       contacts.phone_number = phone_number
+       contacts.subject = subject
+       contacts.website = website
+       contacts.message = message
+       contacts.company = company
+       
+       
+       
+       # here you can create validation for the contact form.
+       
+           
+           
+       contacts.save()
+       return HttpResponse('<h2 target="_blank">Thanks for contacted us!</h2>')
+       
+    return render(request, 'home/contact.html', {}, context=context)
+   
 
 
 def signup(request):

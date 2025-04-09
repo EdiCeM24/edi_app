@@ -10,6 +10,15 @@
 
 
 {% block content %}
+   <!-- About Section -->
+    <div class="nav-icons flex items-center gap-2 mb-6 mt-[10%] sm:mt-[20%] md:mt-[15%] lg:mt-[10%] float-end bg-[#eee]">
+      <a href="{% url 'about' %}" title="About"><i class='bx bx-user text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100'></i></a>
+      <a href="{% url 'resume' %}" title="Resume"><i class="uil uil-file-alt text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100"></i></a>
+      <a href="{% url 'port-folio' %}" title="Portfolio"><i class="uil uil-bag text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100"></i></a>
+      <a href="{% url 'services' %}" title="Services"><i class='bx bx-server text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100'></i></a>
+      <a href="{% url 'contact' %}" title="Contact"><i class='bx bx-envelope text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100'></i></a>
+    </div>
+
    <div class="mt-40 p-4 items-center justify-center justify-items-center">
       <span class="flex mb-6 text-center justify-center">
          <h2 class="h2-text border-b-2 mb-6 border-blue-600 w-40 text-3xl font-semibold ">About <span>Me</span></h2>
@@ -18,9 +27,9 @@
       <div class="flex items-center justify-center bg-amber-100 text-base px-3 py-4">
          <strong class="text-slider text-2xl font-semibold"></strong>
       </div>
-      <div class="about-container flex text-center justify-center mt-10 mb-5 gap-0 text-2xl font-semibold font-sans px-3">
-         <a href="#" class="text-2xl"><i class='bx bx-briefcase' id="about-id"></i></a>
-         <p class="text-gray-500 dark:text-gray-400 md:text-xl sm:text-lg lg:text-2xl lg:text-center lg:justify-center break-words">
+      <div class="about-container flex text-center justify-center mt-10 mb-5 gap-0 text-2xl font-semibold font-sans px-4">
+         <a href="{% url 'port-folio' %}" class="text-2xl"><i class='bx bx-briefcase text-blue-600' id="about-id"></i></a>
+         <p class="text-gray-500 dark:text-gray-400 md:text-xl sm:text-lg lg:text-2xl lg:text-center lg:justify-center break-words text-center justify-center max-w-[80%]">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam voluptatibus neque aspernatur harum eius commodi labore ea amet cupiditate impedit.
          </p>
       </div>
@@ -180,81 +189,139 @@
 
       </section>
 
-      <section class="flex mt-[10%] mb-2">
+      
          
-         <div class="mb-8 -mt-8">
-            <h3>Testimonials</h3>
+         <div class="mb-8 mt-16 flex text-center justify-center">
+            <h3 class="text-2xl text-blue-700 underline">Testimonials</h3>
          </div>
-
+        
+      <swiper-container> 
           <!-- Slider main container -->
-         <div class="swiper">
+         <div class="swiper mt-20">
            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper -mt-8">
+            <div class="swiper-wrapper">
                <!-- Slides -->
-               <div class="swiper-slide">Slide 1</div>
-               <div class="swiper-slide">Slide 2</div>
-               <div class="swiper-slide">Slide 3</div>
-               ...
+               <div class="flex items-center justify-between">
+                  <div class="swiper-slide">
+                     <div class=" py-3 px-4 group">
+                        <span class="bg-blue-400">
+                           <img src="{% static 'assets/images/edi.png' %}" class="rounded-full w-25 h-25 ml-[10%]" alt="">
+                           <div class="group-hover:block hidden drop-down-menu drop-shadow mt-3 transition duration-150 ease-in-out cursor-pointer ml-[9%]">
+                              <strong>Marcus Edidiong</strong>
+                              <p>Software Engineer</p> 
+                           </div>
+                        </span>
+                        <article class="bg-gradient-to-br from-purple-600 via-orange-500 to-blue-800 mt-5 py-4 px-8 w-[30%] rounded">
+                           <p class="text-white text-base">
+                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, alias!
+                           </p>
+                        </article>
+                     </div>
+                  </div>
+                  <div class="swiper-slide">
+                     <div class="py-3 px-4 group">
+                        <span class="bg-blue-400">
+                           <img src="{% static 'assets/images/edi.png' %}" class="rounded-full w-25 h-25 ml-[10%]" alt="">
+                           <div class="group-hover:block hidden drop-down-menu drop-shadow mt-3 transition duration-150 ease-in-out cursor-pointer ml-[9%]">
+                              <strong>Marcus Edidiong 2</strong>
+                              <p>Software Engineer</p> 
+                           </div>
+                        </span>
+                        <article class="bg-gradient-to-br from-purple-600 via-orange-500 to-blue-800 mt-5 py-4 px-8 w-[30%] rounded">
+                           <p class="text-white text-base">
+                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, alias!
+                           </p>
+                        </article>
+                     </div>
+                  </div>
+   
+                  <div class="swiper-slide">
+                    <div class=" py-3 px-4 group">
+                        <span class="bg-blue-400">
+                           <img src="{% static 'assets/images/edi.png' %}" class="rounded-full w-25 h-25 ml-[10%]" alt="">
+                           <div class="group-hover:block hidden drop-down-menu drop-shadow mt-3 transition duration-150 ease-in-out cursor-pointer ml-[9%]">
+                              <strong>Marcus Edidiong 3</strong>
+                              <p>Software Engineer</p> 
+                           </div>
+                        </span>
+                        <article class="bg-gradient-to-br from-purple-600 via-orange-500 to-blue-800 mt-5 py-4 px-8 w-[30%] rounded">
+                           <p class="text-white text-base">
+                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, alias!
+                           </p>
+                        </article>
+                     </div>
+                     
+                  </div>
+   
+                  <div class="swiper-slide">
+                     <div class=" py-3 px-4 group">
+                        <span class="bg-blue-400">
+                           <img src="{% static 'assets/images/edi.png' %}" class="rounded-full w-25 h-25 ml-[10%]" alt="">
+                           <div class="group-hover:block hidden drop-down-menu drop-shadow mt-3 transition duration-150 ease-in-out cursor-pointer ml-[9%]">
+                              <strong>Marcus Edidiong 4</strong>
+                              <p>Software Engineer</p> 
+                           </div>
+                        </span>
+                        <article class="bg-gradient-to-br from-purple-600 via-orange-500 to-blue-800 mt-5 py-4 px-8 w-[30%] rounded">
+                           <p class="text-white text-base">
+                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, alias!
+                           </p>
+                        </article>
+                     </div>
+   
+                  </div>
+   
+                  <div class="swiper-slide">
+                     <div class=" py-3 px-4 group">
+                        <span class="bg-blue-400">
+                           <img src="{% static 'assets/images/edi.png' %}" class="rounded-full w-25 h-25 ml-[10%]" alt="">
+                           <div class="group-hover:block hidden drop-down-menu drop-shadow mt-3 transition duration-150 ease-in-out cursor-pointer ml-[9%]">
+                              <strong>Marcus Edidiong 5</strong>
+                              <p>Software Engineer</p> 
+                           </div>
+                        </span>
+                        <article class="bg-gradient-to-br from-purple-600 via-orange-500 to-blue-800 mt-5 py-4 px-8 w-[30%] rounded">
+                           <p class="text-white text-base">
+                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, alias!
+                           </p>
+                        </article>
+                     </div>
+   
+                  </div>
+   
+                  <div class="swiper-slide">
+                     <div class=" py-3 px-4 group">
+                        <span class="bg-blue-400">
+                           <img src="{% static 'assets/images/edi.png' %}" class="rounded-full w-25 h-25 ml-[10%]" alt="">
+                           <div class="group-hover:block hidden drop-down-menu drop-shadow mt-3 transition duration-150 ease-in-out cursor-pointer ml-[9%]">
+                              <strong>Marcus Edidiong 6</strong>
+                              <p>Software Engineer</p> 
+                           </div>
+                        </span>
+                        <article class="bg-gradient-to-br from-purple-600 via-orange-500 to-blue-800 mt-5 py-4 px-8 w-[30%] rounded">
+                           <p class="text-white text-base">
+                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, alias!
+                           </p>
+                        </article>
+                     </div>
+   
+                  </div>
+               </div>
+
             </div>
-         </div>   
-         <div class="flex items-center">
             <!-- Swiper pagination -->
             <div class="swiper-pagination"></div>
+         </div>   
+         <div class="flex items-center">
 
          </div>
-      </section>
+      </swiper-container>
 
    </div>
    <script src="{% static 'scripts/js/about.js' %}"></script> 
    
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-   <script>
-      const swiper = new Swiper('.swiper', {
-         // Optional parameters
-         direction: 'vertical',
-         loop: true,
-         
-         slidesPerView: 1,
-         spaceBetween: 10,
-        // using "ratio" endpoints
-         breakpoints: {
-            '@0.75': {
-               slidesPerView: 2,
-               spaceBetween: 20,
-            },
-            '@1.00': {
-               slidesPerView: 3,
-               spaceBetween: 40,
-            },
-            '@1.50': {
-               slidesPerView: 4,
-               spaceBetween: 50,
-            },
-         },
-
-         // If we need pagination
-         pagination: {
-            el: '.swiper-pagination',
-         },
-
-         // Navigation arrows
-         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-         },
-      });   
-
-
-
-      
-     let a = document.querySelector('.faq-icon');
-     const dem = () => {
-       a.addEventListener('click', () => {
-         a.classList.toggle('open');
-       })
-     }
-      
-   </script>  
+ 
 {% endblock content %}
 
 

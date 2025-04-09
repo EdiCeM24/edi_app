@@ -4,10 +4,11 @@
 
 @import "flowbite/src/themes/default";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 body {
     font-family: "Outfit", sans-serif;
 }
-
 
 .outfit-uniquifier {
     font-family: "Outfit", sans-serif;
@@ -56,7 +57,10 @@ body {
     width: 600px;
     height: 300px;
   }
-  
+  .swiper-controls {
+    display: flex;
+    align-items: center;
+  }
 
 
 
@@ -98,6 +102,10 @@ body {
     /** RESUME PAGE **/
     .resume {
         margin-top: 30%;
+    }
+    .nav-icons {
+        margin-top: 20%;
+        margin-left: -20%;
     }
 }
 

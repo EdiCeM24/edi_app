@@ -9,6 +9,14 @@
 
 
 {% block content %}
+   <div class="nav-icons flex items-center gap-2 mb-6 mt-[10%] sm:mt-[20%] md:mt-[15%] lg:mt-[10%] float-end bg-[#eee]">
+      <a href="{% url 'about' %}" title="About"><i class='bx bx-user text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100'></i></a>
+      <a href="{% url 'resume' %}" title="Resume"><i class="uil uil-file-alt text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100"></i></a>
+      <a href="{% url 'port-folio' %}" title="Portfolio"><i class="uil uil-bag text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100"></i></a>
+      <a href="{% url 'services' %}" title="Services"><i class='bx bx-server text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100'></i></a>
+      <a href="{% url 'contact' %}" title="Contact"><i class='bx bx-envelope text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100'></i></a>
+   </div>
+
    <div class="resume flex flex-col p-4 items-center justify-center mt-20">
      <div class="flex items-center justify-center mt-[5%] gap-1 text-3xl text-blue-600 cursor-pointer mb-4">
         <span class="text border-gray-500 flex"><i class="uil uil-angle-right"></i></span>
@@ -51,6 +59,7 @@
             <ul class="flex p-4 flex-wrap justify-center gap-2 text-xl text-pretty">
                <li>HTML,</li>
                <li>CSS,</li>
+               <li>SASS,</li>
                <li>JavaScript,</li>
                <li>React js,</li>
                <li>Next js,</li>
@@ -58,7 +67,7 @@
                <li>Python,</li>
                <li>Django,</li>
                <li>MySQL,</li>
-               <li>PostgreSQL,</li>
+               <li>PostgresSQL,</li>
                <li>MongoDB,</li>
                <li>Git,</li>
                <li>Unit Testing,</li>

@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'mars.apps.MarsConfig',
     'compressor',
     
+    #'embed_video',
+    #"phonenumber_field",
 ]
 
 MIDDLEWARE = [
@@ -136,7 +138,17 @@ COMPRESS_ENABLED = True
 
 STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.template.context_processors.request',
+)
 
+# EMAIL BACKENDS
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackends'
+EMAIL_HOST = 'localhost'   # 'smtp.gmail.com'  
+EMAIL_PORT = 1025    # 587
+EMAIL_HOST_USER = 'cemus24@gmail.com'
+EMAIL_HOST_PASSWORD = ''    # 16 character string
+EMAIL_USE_TLS = False    # True
 
 
 # Default primary key field type
@@ -144,4 +156,5 @@ STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+PHONENUMBER_DB_FORMAT = 'INTERNATIONAL'
+PHONENUMBER_DEFAULT_REGION = 'NG'
