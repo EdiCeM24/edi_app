@@ -9,7 +9,7 @@
 
 
 {% block content %}
-      <div class="nav-icons flex items-center gap-2 mb-6 mt-[10%] sm:mt-[20%] md:mt-[15%] lg:mt-[10%] float-end bg-[#eee]">
+      <div class="nav-icons flex items-center gap-2 mb-6 mt-[10%] sm:mt-[20%] md:mt-[15%] lg:mt-[10%] float-end bg-[#eee] p-10">
          <a href="{% url 'about' %}" title="About"><i class='bx bx-user text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100'></i></a>
          <a href="{% url 'resume' %}" title="Resume"><i class="uil uil-file-alt text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100"></i></a>
          <a href="{% url 'port-folio' %}" title="Portfolio"><i class="uil uil-bag text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100"></i></a>
@@ -17,36 +17,82 @@
          <a href="{% url 'contact' %}" title="Contact"><i class='bx bx-envelope text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100'></i></a>
       </div>
 
-      <div class="mt-3"></div>
+      <div class="mt-[18%] flex items-center justify-center">
+         <div class="flex items-center justify-center gap-1 cursor-pointer">
+            <i class="uil uil-bag text-2xl text-blue-600"></i>
+            <h1 class="text-2xl text-gray-600">PORTFOLIO <span class="text-2xl text-blue-700 text-smooth hover:text-orange-500 transition duration-150 ease-in-out">SECTION</span></h1>
+         </div>
+      </div>
 
+      <div class="flex flex-col mt-6">
+         <article>
+            <p class="text-base max-w-[600px] text-center ml-[25%]">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod voluptates quis non neque mollitia aperiam. Sunt natus fugit facilis adipisci. 
+            </p>
+         </article>
+      </div>
 
-   <div class="flex mt-40">
-     <h2>Portfolio</h2>
-      
-     <i class='bx bxs-image-alt'></i>
-      <i class='bx bx-arrow-to-bottom'></i>
-      <i class='bx bxs-videos'></i>
-      <i class='bx bx-book-reader'></i>
-      <i class='bx bxs-printer'></i>
-      <i class='bx bxs-heart'></i>
-      <i class='bx bx-message-square-add text-black'></i>
-      <i class='bx bxs-download'></i>
-      <i class='bx bxs-certification'></i>
-                  <i class='bx bx-at'></i>
-                  <i class='bx bx-code-alt'></i>
-      <i class='bx bxs-graduation'></i>
-      <i class="uil uil-bag"></i>
-
-      <i class='bx bx-current-location' style="color: #000;"></i>
+      <div class="mt-[6%] p-4 m-auto grid grid-cols-3 ">
+         {% for pics in ports %}
             
-           <i class='bx bxs-graduation'></i>
-           <i class="uil uil-smile"></i>
-           <i class="uil uil-gift"></i>
-            <i class="uil uil-bag"></i>
-            <i class='bx bx-award'></i>
+              <div class="overflow-hidden">
+                  <strong class="flex text-center justify-center mt-6 mb-1">{{ pics.caption }}</strong>
+                 <div class="group" aria-hidden="true">
+                    <a href="#" class="transition duration-150 ease-in-out">
+                       <i class='bx bx-link text-gray-600 flex text-center text-2xl justify-start absolute mt-16 hover:opacity-100 opacity-0 hover:block ml-[14%]'></i>
+                       <img src="{{ pics.image.url }}" class=" hover:scale w-[70%] h-[70%] mt-1 flex flex-col m-auto py-4 px-2 rounded-md" alt="">
+                    </a>
+                    <div class="group-hover:block hidden drop-down-menu transition duration-150 ease-in-out w-[80%] p-2 ml-8">
+                       <p class="flex text-center justify-center mb-2"><small>{{ pics.text }}</small></p>
+                       <span class="flex text-center justify-center mt-2 mb-2"><small>{{ pics.created_at }}</small></span>
+                    </div>
+                 </div>
+              </div>
 
-            <span class="absolute top-24 left-0"><i class='bx bxs-envelope text-teal-600 text-2xl font-semibold'></i>Envelope</span>
-     <span class="absolute top-30 left-0"><i class='bx bx-user text-teal-600 text-2xl font-semibold'></i>User</span>
-   </div>
+         {%  endfor %}
+      </div>
+
+
+      <div class="flex text-center justify-center mt-[10%]">
+         <h2 class="uppercase">Projects on video</h2>
+      </div>
+      <div class="text-base ml-[25%] max-w-[600px] mt-6 mb-4">
+         <p>
+           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti incidunt explicabo, ea neque quo omnis modi ipsum. Omnis et tenetur, at quidem quos officia quas? 
+         </p>
+      </div>
+      <div class="mt-[6%] p-4 m-auto grid grid-cols-3 mb-10">
+         {% for photo in portVid %}
+              <div class="overflow-hidden" id="check-open>
+                  <strong class="flex text-center justify-center mt-6 mb-1">{{ photo.caption }}</strong>
+                 <div class="group" aria-hidden="true">
+                    <a href="#" class="transition duration-150 ease-in-out">
+                       <i class='bx bx-link text-gray-600 flex text-center text-2xl justify-start absolute mt-16 hover:opacity-100 opacity-0 hover:block ml-[14%]'></i>
+                       <video src="{{ photo.image.url }}" controls class=" hover:scale w-[70%] h-[70%] mt-1 flex flex-col m-auto py-4 px-2 rounded-md"></video>
+                    </a>
+                    <div class="group-hover:block hidden drop-down-menu transition duration-150 ease-in-out w-[80%] p-2 ml-8">
+                       <p class="flex text-center justify-center mb-2"><small>{{ photo.text }}</small></p>
+                       <span class="flex text-center justify-center mt-2 mb-2"><small>{{ photo.created_at }}</small></span>
+                    </div>
+                 </div>
+              </div>
+
+         {%  endfor %}
+      </div>
+
+ 
+
+      
+
+
    <script src="{% static 'scripts/js/Portfolio.js' %}"></script>
+   <script>
+      const picsOpen = document.getElementById('check-open');
+      picsOpen.addEventListener('click', () => {
+         let div = document.createElement('div')
+         div.classList.toggle('open');
+         document.picsOpen.appendChild(div);
+
+      });
+   </script>
 {% endblock content %}

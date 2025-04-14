@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Contact, Skill, About, Portfolio, SignupForm, Services
+from .models import Contact, Skill, About, Portfolio, PortfolioVideo, SignupForm, Services
 
 
 
@@ -19,6 +19,10 @@ class PortfolioAdmin(admin.ModelAdmin):
     list_display = ('caption', 'image', 'text', 'created_at')
     
     
+class PortfolioVideoAdmin(admin.ModelAdmin):
+    list_display = ('caption', 'image', 'text', 'created_at')
+    
+    
 class SignupFormAdmin(admin.ModelAdmin):
     list_display = ('fname', 'lname', 'username', 'email')
 
@@ -35,6 +39,8 @@ admin.site.register(Skill, SkillAdmin)
 admin.site.register(About, AboutAdmin)
 
 admin.site.register(Portfolio, PortfolioAdmin)
+
+admin.site.register(PortfolioVideo, PortfolioVideoAdmin)
 
 admin.site.register(Services, ServicesAdmin)
 

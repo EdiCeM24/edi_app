@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import auth
-from .models import Skill, About, Portfolio, Services
+from .models import Skill, About, Portfolio, PortfolioVideo, Services
 from . models import Contact
 from django.http import HttpResponse
 #from apps.userprofile.models import Profile
@@ -81,10 +81,12 @@ def login(request):
 
 def portfolio(request):
     ports = Portfolio.objects.all()
+    portVid = PortfolioVideo.objects.all()
     return render(request, 'home/portfolio.html', {
         'ports': ports,
+        'portVid': portVid,
     })
-
+    
 
 def resume(request):
     return render(request, 'home/resume.html')

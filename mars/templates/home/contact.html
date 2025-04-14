@@ -50,7 +50,7 @@
        {% if messages %}
        {% for message in messages %}
            <div class="alert {{ message.tags }} m-2 mb-6" id="msg" role="alert">
-             {{ message }}           
+             <button>{{ message }}</button>           
            </div>
        {% endfor %}
      {% endif %}    
@@ -80,18 +80,16 @@
         <div class="grid md:grid-cols-2 mb-3 md:gap-6">
           
           <div class="relative z-0 w-full mb-5 group">
-              <label for="phone-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Phone number:</label>
+            <div class="relative">
+              <span class="absolute start-0 bottom-3 text-gray-500 dark:text-gray-400">
+                  <svg class="w-4 h-4 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 19 18">
+                      <path d="M18 13.446a3.02 3.02 0 0 0-.946-1.985l-1.4-1.4a3.054 3.054 0 0 0-4.218 0l-.7.7a.983.983 0 0 1-1.39 0l-2.1-2.1a.983.983 0 0 1 0-1.389l.7-.7a2.98 2.98 0 0 0 0-4.217l-1.4-1.4a2.824 2.824 0 0 0-4.218 0c-3.619 3.619-3 8.229 1.752 12.979C6.785 16.639 9.45 18 11.912 18a7.175 7.175 0 0 0 5.139-2.325A2.9 2.9 0 0 0 18 13.446Z"/>
+                  </svg>
+              </span>
+              <input type="tel" name="phone_number" id="floating-phone-number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}" placeholder="0702-626 6495 " required />
               
-              <div class="relative">
-                  <div class="absolute inset-y-0 start-0 top-0 flex items-center ps-3.5 pointer-events-none">
-                      <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 19 18">
-                          <path d="M18 13.446a3.02 3.02 0 0 0-.946-1.985l-1.4-1.4a3.054 3.054 0 0 0-4.218 0l-.7.7a.983.983 0 0 1-1.39 0l-2.1-2.1a.983.983 0 0 1 0-1.389l.7-.7a2.98 2.98 0 0 0 0-4.217l-1.4-1.4a2.824 2.824 0 0 0-4.218 0c-3.619 3.619-3 8.229 1.752 12.979C6.785 16.639 9.45 18 11.912 18a7.175 7.175 0 0 0 5.139-2.325A2.9 2.9 0 0 0 18 13.446Z"/>
-                      </svg>
-                  </div>
-                  <input type="text" name="phone_number" id="phone-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="+1 123-456-7890" required />
-              </div> 
-
-              <p id="helper-text-explanation" class="mt-2 text-sm text-gray-500 dark:text-gray-500">Select a phone number that matches the format.</p>
+              <label for="floating-phone-number" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:start-6 peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Phone number</label>
+            </div>
           </div>
 
           <div class="relative z-0 w-full mb-5 group">
@@ -127,4 +125,42 @@
 
       
     </div>
+
+    <script>
+      // SWIPER FOR ABOUT PAGE
+      const swiper = new Swiper('.swiper', {
+           // Optional parameters
+           direction: 'vertical',
+           loop: true,
+           
+           slidesPerView: 1,
+           spaceBetween: 10,
+         // using "ratio" endpoints
+           breakpoints: {
+             '@0.75': {
+                 slidesPerView: 2,
+                 spaceBetween: 20,
+             },
+             '@1.00': {
+                 slidesPerView: 3,
+                 spaceBetween: 40,
+             },
+             '@1.50': {
+                 slidesPerView: 4,
+                 spaceBetween: 50,
+             },
+           },
+
+           // If we need pagination
+           pagination: {
+             el: '.swiper-pagination',
+           },
+
+           // Navigation arrows
+           navigation: {
+             nextEl: '.swiper-button-next',
+             prevEl: '.swiper-button-prev',
+           },
+       });
+   </script>
 {% endblock content %}

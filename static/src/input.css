@@ -10,6 +10,11 @@ body {
     font-family: "Outfit", sans-serif;
 }
 
+
+.close {
+    display: none;
+}
+
 .outfit-uniquifier {
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;

@@ -23,8 +23,9 @@
         <div class="absolute top-[6%] -mt-[2%] ml-[20%]">
           {% if messages %}
             {% for message in messages %}
-                <button class="alert {{ message.tags }} m-2 mb-6 bg-blue-700 text-white py-2 px-2 btn-close" aria-label="Close" id="msg" role="alert">
-                  {{ message }}           
+                <button class="alert {{ message.tags }} flex items-center gap-1 m-2 mb-6 bg-blue-700 rounded text-white py-2 px-2 btn-close" aria-label="Close" id="msg" role="alert">
+                  {{ message }} 
+                  <i class='bx bx-x text-2xl text-gray-600 cursor-pointer' id="msg" style='color:#413d3d'></i>        
                 </button>
             {% endfor %}
           {% endif %} 
@@ -63,10 +64,13 @@
   </div>
 
   <script>
-    setTimeout(() => {
+    <!-- setTimeout(() => {
       if($('msg').length > 0) {
         $('#msg').remove();
       }
-    },2000); 
+    },2000);  -->
+
+    let edom = document.getElementById('msg').remove();
+    
   </script>
 {% endblock content %}

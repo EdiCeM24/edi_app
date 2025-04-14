@@ -31,6 +31,16 @@ class Portfolio(models.Model):
         return self.caption
     
     
+class PortfolioVideo(models.Model):
+    caption = models.CharField(max_length=255)    
+    image = models.FileField(upload_to='video', blank=True, null=True)
+    text = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.caption
+    
+    
 class Services(models.Model):
     title = models.CharField(max_length=255)    
     image = models.ImageField(upload_to='store', blank=True, null=True)
