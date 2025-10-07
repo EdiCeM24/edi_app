@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+
+{% block title %}Edidiong | Contact Confirmation Message{% endblock title %}
+    
+
+
+{% block content %}
+    <div class="contact-success block items-center justify-center mt-[10%] ml-[30%] bg-[#eee] w-[40%] p-4">
+        <div class="header">
+            <h1>Message Sent Successfully!</h1>
+        </div>
+        <div class="content">
+            <p>Thank you for reaching out. We will get back to you soon.</p>
+        </div>
+        <div class="">
+            <p class="gap-2 p-2">Back to <a href="{% url 'home' %}" class="font-semibold text-blue-700 hover:underline hover:purple-600">Home</a> page</p>
+        </div>
+    </div>
+{% endblock content %}

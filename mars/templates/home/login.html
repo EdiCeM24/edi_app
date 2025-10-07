@@ -1,0 +1,59 @@
+{% extends 'main/base.html' %}
+
+{% load compress %}
+
+{% load static %}
+
+{% block title %} | Login {% endblock title %}
+
+{% block content %}  
+    <main class="login-page mt-36">
+        <h2 class="login-h2 mt-10 mb-6 flex text-center justify-center text-2xl font-semibold border-b-2">Login Here</h2>
+        <form id="form-control" class="form-controls mt-[-30] box-shadow bg-[#eee] mb-10 p-10 rounded-lg w-[90%]" action="." method="post">
+          {% csrf_token %}
+                
+            <div class="ml-[20%]">
+                <div class="login-main">
+                   <div class="login_box relative top-4 mt-6 mb-5 flex flex-col sm:flex sm:flex-col">
+                        <label for="username" class="mb-4 ml-10 font-semibold text-slate-500 hover:text-slate-800 text-xl">Username:</label>
+                        <input type="text" id="username" name="username" class="login-input w-[80%] sm:-[100%] ml-8 p-4 rounded-xl text-2xl bg-amber-100 text-gray-700 border-none outline-none" required> 
+                        <span class="absolute top-15 left-0"><i class='bx bx-user text-teal-600 text-2xl font-semibold'></i></span>
+                        <span class="absolute top-24 mt-4 mb-4 hidden">
+                            <i class='bx bx-check text-2xl font-semibold text-green-700' id="success"></i>
+                            <i class='bx bx-error-circle text-2xl font-semibold text-green-700' id="message"></i>
+                            <i class='bx bx-x text-2xl font-semibold text-green-700' id="error"></i> 
+                        </span>
+                    </div>
+                        
+                    <div class="login_box mt-14 mb-6 flex flex-col sm:flex sm:flex-col">
+                        <label for="password" class="mb-4 ml-10 font-semibold text-slate-500 hover:text-slate-800 text-xl">Password:</label>
+                        <input type="password" id="password" name="password" class="login-input-pass w-[80%] sm:-[100%] ml-8 p-4 rounded-xl text-2xl bg-amber-100 text-gray-700 border-none outline-none" required> 
+                        <!-- <span class="absolute top-[45%] left-[32%] mt-[30%] sm:mt-[1%] sm:ml-[-16%]"><i class='bx bxs-lock text-teal-600 text-2xl font-semibold'></i></span>  -->
+                       
+                        <span class="mt-3 mb-0 hidden sm:top-[68%]">
+                            <i class='bx bx-check text-2xl font-semibold text-green-700' id="success"></i>
+                            <i class='bx bx-error-circle text-2xl font-semibold text-green-700' id="message"></i>
+                            <i class='bx bx-x text-2xl font-semibold text-green-700' id="error"></i> 
+                        </span>
+                    </div> 
+                </div>
+                    
+                <div class="loxus_login mt-2 flex text-center justify-center -ml-36 text-pretty gap-1">
+                    <input type="checkbox" id="remember-me" name="remember-me" required>
+                    <label for="remember-me">Remember me</label>
+                </div>  
+    
+                <div class="loxus_login flex items-center justify-evenly -ml-[20%] mt-6 mb-2">
+                    <p>Don't have an account? <a href="{% url 'signup' %}" class="flex-nowrap mb-2 text-xl font-semibold text-blue-600 transition-150 ease-in-out duration-150 flex flex-col hover:text-red-700 transition">Register</a></p> 
+                    <p>Forgot password? <a href="{% url 'password_reset' %}" class="flex-nowrap mb-2 text-xl font-semibold text-blue-600 transition-150 ease-in-out duration-150 flex flex-col hover:text-red-700 transition">Sign In Instead</a></p>
+                </div>
+    
+                <input type="submit" class="login_btn px-8 py-4 w-[70%] outline-4 outline-offset-4 outline-gray-500 bg-gradient-to-br from-purple-500 via-blue-500 to-orange-500 hover:bg-blue-900 transition ease-in-out duration-150 uppercase cursor-pointer text-white font-semibold rounded mb-10 mt-6 ml-10" value="Login">
+      
+            </div>
+        </form>
+   </main>   
+
+   <script src="{% static 'scripts/auth/auths.js' %}"></script> 
+{% endblock content %}
+    

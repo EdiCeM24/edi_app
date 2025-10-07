@@ -1,0 +1,132 @@
+{% extends 'main/base.html' %}
+
+    {% load compress %}
+    
+    {% load static %}
+    
+    {% block title %} | Sign Up {% endblock title %}
+
+
+    {% block content %}  
+        <main class="login-page mt-36">
+            <h2 class="signup-h2 mt-10 mb-6 flex text-center justify-center text-2xl font-semibold border-b-2">Sign Up Here</h2>
+            <form id="form-control" class="mt-10 bg-[#eee] mb-10 p-10 rounded-lg block items-center justify-center" action="." method="post">
+                {% csrf_token %}
+                    
+                <div class="signup-form block items-center justify-center ml-[10%]">
+                    <div class="signup-contents flex items-center justify-evenly">
+                        <div class="login-box relative top-4 mt-6 mb-5 -ml-[17%] flex flex-col sm:flex sm:flex-col">
+                            <label for="firstName" class="mb-4 font-semibold text-slate-500 hover:text-slate-800 text-xl ml-10">First Name:</label>
+                            <input type="text" id="fname" name="fname" pattern="[a-zA-Z]{3, 100}" title="name should be 3 to 100 characters long and contain only alphabets." class="w-[100%] md:w-[80%] lg:w-[100%] ml-8 sm:w-[60%] p-4 rounded-xl text-2xl bg-amber-100 text-gay-700 border-none outline-none" required> 
+                            <span class="absolute top-15 left-0"><i class='bx bx-user text-teal-600 text-2xl font-semibold'></i></span>
+                            <span class="absolute top-24 mt-4 mb-4 hidden">
+                                <i class='bx bx-check text-2xl font-semibold text-green-700' id="success"></i>
+                                <i class='bx bx-error-circle text-2xl font-semibold text-green-700' id="message"></i>
+                                <i class='bx bx-x text-2xl font-semibold text-green-700' id="error"></i> 
+                            </span>
+                        </div>
+                        <div class="login-box relative top-4 mt-6 mb-5 flex flex-col sm:flex sm:flex-col">
+                            <label for="lname" class="mb-4 font-semibold text-slate-500 hover:text-slate-800 text-xl ml-10">Last Name:</label>
+                            <input type="text" id="lname" name="lname" pattern="[a-zA-Z]{3, 100}" title="name should be 3 to 100 characters long and contain only alphabets." class="w-[100%] sm:w-[60%] md:w-[80%] lg:w-[100%] ml-8 p-4 rounded-xl text-2xl bg-amber-100 text-gray-700 border-none outline-none" required> 
+                            <span class="absolute top-15 left-0"><i class='bx bx-user text-teal-600 text-2xl font-semibold'></i></span>
+                            <span class="absolute top-24 mt-4 mb-4 hidden">
+                                <i class='bx bx-check text-2xl font-semibold text-green-700' id="success"></i>
+                                <i class='bx bx-error-circle text-2xl font-semibold text-green-700' id="message"></i>
+                                <i class='bx bx-x text-2xl font-semibold text-green-700' id="error"></i> 
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="signup-contents flex items-center justify-evenly">
+                        <div class="login-box -ml-[17%] relative top-4 mt-6 mb-5 flex flex-col sm:flex sm:flex-col">
+                            <label for="username" class="mb-4 font-semibold text-slate-500 hover:text-slate-800 text-xl ml-10">Username:</label>
+                            <input type="text" id="username" name="username" pattern="[a-zA-Z0-9_]{3, 30}" title="Username should be 3 to 30 characters long and contain only alphanumric and underscores." class="w-[100%] ml-8 sm:w-[60%] md:w-[80%] lg:w-[100%] p-4 rounded-xl text-2xl bg-amber-100 text-gray-700 border-none outline-none" required> 
+                            <span class="absolute top-15 left-0"><i class='bx bx-user text-teal-600 text-2xl font-semibold'></i></span>
+                            <span class="absolute top-24 mt-4 mb-4 hidden">
+                                <i class='bx bx-check text-2xl font-semibold text-green-700' id="success"></i>
+                                <i class='bx bx-error-circle text-2xl font-semibold text-green-700' id="message"></i>
+                                <i class='bx bx-x text-2xl font-semibold text-green-700' id="error"></i> 
+                            </span>
+                        </div>
+        
+                        <div class="login-box relative top-4 mt-6 mb-5 flex flex-col sm:flex sm:flex-col">
+                            <label for="email" class="mb-4 font-semibold text-slate-500 hover:text-slate-800 text-xl ml-10">Email:</label>
+                            <input type="email" id="email" name="email" pattern="[a-zA-Z._%+-]+@[a-zA-Z0-9._]+\.[a-zA-Z]{3,}$" title="Email should be in a correct formats." class="w-[100%] sm:w-[60%] md:w-[80%] lg:w-[100%] ml-8 p-4 rounded-xl bg-amber-100 text-2xl text-gray-700 border-none outline-none" required> 
+                            <span class="absolute top-15 left-0"><i class='bx bxs-envelope text-teal-600 text-2xl font-semibold'></i></span>
+                            <span class="absolute top-24 mt-4 mb-4 hidden">
+                                <i class='bx bx-check text-2xl font-semibold text-green-700' id="success"></i>
+                                <i class='bx bx-error-circle text-2xl font-semibold text-green-700' id="message"></i>
+                                <i class='bx bx-x text-2xl font-semibold text-green-700' id="error"></i> 
+                            </span>
+                        </div>
+                            
+                    </div>
+    
+                    <div class="signup-contents flex items-center justify-evenly">
+                        <div class="login-box -ml-[17%] mt-14 mb-6 flex flex-col sm:flex sm:flex-col">
+                            <label for="password" class="mb-4 font-semibold text-slate-500 hover:text-slate-800 text-xl ml-10">Password:</label>
+                            <input type="password" id="password1" name="password1" class="w-[100%] ml-8 sm:w-[60%] md:w-[80%] lg:w-[100%] p-4 rounded-xl bg-amber-100 text-2xl text-gray-700 border-none outline-none" required> 
+                            <span class="top-0 -mt-10"><i class='bx bxs-lock text-teal-600 text-2xl font-semibold'></i></span>
+                            <span class="mt-4 mb-2 hidden sm:top-[68%]">
+                                <i class='bx bx-check text-2xl font-semibold text-green-700' id="success"></i>
+                                <i class='bx bx-error-circle text-2xl font-semibold text-green-700' id="message"></i>
+                                <i class='bx bx-x text-2xl font-semibold text-green-700' id="error"></i> 
+                            </span>
+                        </div>
+        
+                        <div class="login-box mt-6 mb-6 flex flex-col sm:flex sm:flex-col">
+                            <label for="password" class="mb-4 font-semibold text-slate-500 hover:text-slate-800 text-xl ml-10">Confirm Password:</label>
+                            <input type="password" id="password2" name="password2" class="w-[100%] ml-8 sm:w-[60%] md:w-[80%] lg:w-[100%] p-4 rounded-xl bg-amber-100 text-2xl text-gray-700 border-none outline-none" class="w-[100%] sm:w-[60%] md:w-[80%] lg:w-[100%] ml-8 p-4 rounded-xl bg-amber-100 text-2xl text-gray-700 border-none outline-none" required> 
+                             <span class="top-0 -mt-10"><i class='bx bxs-lock text-teal-600 text-2xl font-semibold'></i></span>
+                            <span class="mt-4 mb-3 hidden sm:top-[68%]">
+                                <i class='bx bx-check text-2xl font-semibold text-green-700' id="success"></i>
+                                <i class='bx bx-error-circle text-2xl font-semibold text-green-700' id="message"></i>
+                                <i class='bx bx-x text-2xl font-semibold text-green-700' id="error"></i> 
+                            </span>
+                        </div> 
+                    </div>
+                        
+        
+                    <div class="loxus flex items-center justify-evenly mt-18 mb-2 -ml-[30%]">
+                        <p>Have an account? <a href="{% url 'login' %}" class="flex-nowrap text-xl font-semibold text-blue-600 hover:text-red-700 transition-150 ease-in-out duration-150">Login</a></p> 
+                        <a href="{% url 'password_reset' %}" class="flex-nowrap text-xl font-semibold text-blue-600 hover:text-red-700 transition-150 ease-in-out duration-150">Forgot Password?</a>
+                    </div>
+        
+                    <input type="submit" id="register-btn" class="btn px-8 py-4 w-[70%] md:w-[55%] mt-16 outline-4 outline-offset-4 outline-gray-500 bg-gradient-to-br from-purple-500 via-blue-500 to-orange-500 hover:bg-blue-900 hover:text-red-700 transition ease-in-out duration-150 uppercase cursor-pointer text-white font-semibold rounded mb-10 ml-[15%]" value="Register">
+                </div>
+    
+            </form>
+        </main>
+        <script>
+            const fname = document.getElementById("fname");
+            fname.addEventListener("input", (e) => {
+                e.target.value = e.target.value.trimStart();
+            });
+
+            const lname = document.getElementById("lname");
+            lname.addEventListener("input", (e) => {
+                e.target.value = e.target.value.trimStart();
+            });
+
+            const username = document.getElementById("username");
+            username.addEventListener("input", (e) => {
+                e.target.value = e.target.value.trimStart();
+            });
+
+            const email = document.getElementById("email");
+            email.addEventListener("input", (e) => {
+                e.target.value = e.target.value.trimStart();
+            });
+            const password1 = document.getElementById("password1");
+            password1.addEventListener("input", (e) => {
+                e.target.value = e.target.value.trimStart();
+            });
+            const password2 = document.getElementById("password2");
+            password2.addEventListener("input", (e) => {
+                e.target.value = e.target.value.trimStart();
+            });
+        </script>
+        
+        <script src="{% static 'scripts/auth/auths.js' %}"></script>  
+   {% endblock content %}
+            

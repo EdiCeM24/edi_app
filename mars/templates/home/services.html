@@ -1,0 +1,48 @@
+{% extends 'main/base.html' %}
+
+{% load compress %}
+
+{% load static %}
+
+{% block title %} | Services {% endblock title %}
+
+
+
+{% block content %}
+    <div class="nav-icons-services flex items-center gap-2 mb-6 mt-[30%] sm:mt-[20%] md:mt-[15%] lg:mt-[10%] bg-[#eee]">
+      <a href="{% url 'about' %}" title="About"><i class='bx bx-user text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100'></i></a>
+      <a href="{% url 'contact' %}" title="Contact"><i class='bx bx-envelope text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100'></i></a>
+      <a href="{% url 'portfolio' %}" title="Portfolio"><i class="uil uil-bag text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100"></i></a>
+      <a href="{% url 'resume' %}" title="Resume"><i class="uil uil-file-alt text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100"></i></a>
+    </div>
+    
+    <div class="services-head-text mt-[15%] ml-[40%]">
+       <h2 class="services-heading">Services</h2>
+    </div>
+   
+   <div class="block mt-20">
+    
+     <div class="flex text-pretty ml-[20%] gap-1">
+        <i class='bx bxs-download'></i>
+        <p class="services-text max-w-[700px]">
+          Services is a platform of our intelligent that entails us of our potential abilities for vital creative and innovative trend in life that everyone comes to admired and compensate in one way or the other. It is a time of absolute fulfillment for everyone's need.
+        </p>
+      </div>
+
+     <section class="flex items-center justify-center mt-[5%] ml-[-5%]">
+        <span class="flex items-center invisible in-focus-visible:visited:enabled:open:top-9/12 justify-center cursor-pointer"><i class='bx bxs-image-alt pics-open text-4xl text-red-400 bg-blue-200 rounded-full p-4' title="View"></i></span>
+        <div class="photo-open grid grid-cols-3 items-center justify-center gap-2 py-4s">
+          
+          {% for product in served %}
+              <div class="pics-services ml-[6%] items-center justify-center p-6">
+                <img class="services-icons gap-1 max-h-1/2 block items-center justify-center rounded-md" src="{{ product.image.url }}" alt="Products">
+                <p class="p-2 text-xl text-justify">{{ product.title }}</p>
+                <span class="p-1 text-pretty">{{ product.text }}</span>
+                <span class="text-base block ml-2">{{ product.created_at }}</span>
+              </div>
+          {% endfor %}
+        </div>
+     </section>
+   </div>
+   <script src="{% static 'scripts/js/services.js' %}"></script>
+{% endblock content %}

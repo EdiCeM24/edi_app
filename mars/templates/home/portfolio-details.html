@@ -1,0 +1,88 @@
+{% extends 'main/base.html' %}
+
+    {% load compress %}
+    
+    {% load static %}
+    
+    {% block title %} | Portfolio Details {% endblock title %}
+
+
+
+{% block content %}
+      <div class="nav-icons-portfolio-detail flex items-center gap-2 mb-6 mt-[25%] bg-[#eee] p-10">
+          <a href="{% url 'about' %}" title="About"><i class='bx bx-user text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100'></i></a>
+          <a href="{% url 'contact' %}" title="Contact"><i class='bx bx-envelope text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100'></i></a>
+          <a href="{% url 'portfolio' %}" title="Portfolio"><i class="uil uil-bag text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100"></i></a>
+          <a href="{% url 'resume' %}" title="Resume"><i class="uil uil-file-alt text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100"></i></a>
+          <a href="{% url 'services' %}" title="Services"><i class='bx bx-server text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100'></i></a>
+      </div>
+
+    <main class="mt-[5%] p-8">
+        <h2 class="head-text text-center justify-center text-xl w-60">PORTFOLIO DETAILS</h2>
+        
+        <section class="text-port-details mt-5">
+            <p class="text-center justify-center max-w-[500px] bg-[#eee] text-base ml-[30%]">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad odio deserunt iste blanditiis, voluptatem dicta atque tempora quasi nemo consequuntur soluta harum perspiciatis maxime laudantium.  
+            </p>
+        </section>
+      
+        
+        <section class="text-portfolio-details grid grid-cols-3 p-4 px-4 py-4 mt-8 mb-6">
+          {% for detail in details %}
+            <div class="port-container mt-6 mb-4 px-10 py-6 box-id hover:box-shadow-[0px 5px 10px rgba(0, 0, 0, 0.8)]">
+                <article>
+                  <div class="ml-[10%] mt-[10%] mb-4">
+                    <h5>{{ detail.continue_text }}</h5>
+                  </div>
+                    <h2 class="text-center justify-center text-xl font-semibold mb-4">{{ detail.head_word }}</h2> 
+                    <div class="bg-[#fff] rounded-sm py-3 px-4 box mb-4">
+                      <p>{{ detail.text }}</p>
+                    </div>
+                    <div class="py-3 px-4">
+                      <img src="{{ detail.display_image.url }}" class="photo-img rounded-sm" alt="{{ detail.author }}">
+                    </div>
+
+                    <div class="text-base block">
+                      <p class="text-pretty text-pink-600">{{ detail.author }}</p>
+                      <span class="text-pretty text-pink-600">{{ detail.created_at }}</span>
+                    </div>
+                </article>
+              </div>
+            {% endfor %}  
+        </section>
+
+
+        <div class=" block text-center justify-center font-serif bg-[#eee] mb-[10%] p-[4rem]">
+          <article class="mb-8">
+            <h2 class="text-2xl font-semibold">Video Section</h2>
+          </article>
+          <p class="justify-start text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime cum, voluptate cupiditate natus tempore placeat dolore recusandae repellat voluptatum atque id rerum, mollitia iste sint nemo accusamus veritatis nesciunt consequatur.</p>
+        </div>
+        <section class="text-portfolio-details grid grid-cols-3 p-4 px-4 py-4 mt-8 mb-6">
+          {% for photo in video %}
+            <div class="port-container mt-6 mb-4 px-10 py-6 box-id hover:box-shadow-[0px 5px 10px rgba(0, 0, 0, 0.8)]">
+                 <div class="">
+                  <strong>{{ photo.continue_from_prev }}</strong>
+                 </div>
+                <article>
+                  <div class="ml-[10%] mt-[10%] mb-4">
+                    <h5>{{ photo.title }}</h5>
+                  </div>
+                    <h2 class="text-center justify-center text-xl font-semibold mb-4">{{ detail.head_word }}</h2> 
+                    <div class="bg-[#fff] rounded-sm py-3 px-4 box mb-4">
+                      <p>{{ photo.text }}</p>
+                    </div>
+                    <div class="py-3 px-4">
+                      <video src="{{ photo.video.url }}" class="photo-img rounded-sm" controls contextmenu=""></video>
+                    </div>
+
+                    <div class="text-base block">
+                      <span class="text-pretty text-pink-600">{{ photo.created_at }}</span>
+                    </div>
+                </article>
+              </div>
+            {% endfor %}  
+        </section>
+    </main>   
+
+{% endblock content %}       

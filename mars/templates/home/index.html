@@ -1,0 +1,100 @@
+{% extends 'main/base.html' %}
+
+{% load compress %}
+
+{% load static %}
+
+
+
+{% block content %}
+<div class="containerElem gap-3 p-8 -ml-[20%] mx-auto" id="sidebar-contents"></div>
+
+  <div class="main-page flex items-center justify-evenly mt-[10%] gap-[12%]">
+    
+    <div class="sidebar1 mt-[25%] ml-[4%]">
+      <div class="sidebar mt-[-25%] gap-12 lg:bg-amber-500 fixed z-50">
+        <a href="{% url 'home' %}" class='rounded-full  flex items-center gap-4 hover:text-white' title="Home"><i class='bx bx-home btn active bg-indigo-600 focus:ring-4 rounded-full text-xl items-center justify-center p-2 font-semibold w-10 h-10' id="btn-icon-1" title="Home"></i></a>
+        <a href="{% url 'about' %}" class='rounded-full flex items-center gap-4 hover:text-white' title="About"><i class='bx bx-user btn bg-purple-600 rounded-full text-xl items-center justify-center p-2 font-semibold w-10 h-10' id="btn-icon-2" title="About"></i></a>
+        <a href="{% url 'contact' %}" class='rounded-full flex items-center gap-4 hover:text-white' title="Contact"><i class='bx bx-envelope btn bg-purple-600 rounded-full text-xl items-center justify-center p-2 font-semibold w-10 h-10' id="btn-icon-3" title="Contact"></i></a>
+        <a href="{% url 'portfolio' %}" class='rounded-full flex items-center gap-4 hover:text-white' title="Portfolio"><i class='uil uil-bag btn bg-purple-600 rounded-full text-xl items-center justify-center p-2 font-semibold w-10 h-10' id="btn-icon-4" title="Portfolio"></i></a>
+        <a href="{% url 'resume' %}" class='rounded-full flex items-center gap-4 hover:text-white' title="Resume"><i class='bx bx-file btn bg-purple-600 rounded-full text-xl items-center justify-center p-2 font-semibold w-10 h-10' id="btn-icon-5" title="Resume"></i></a>
+        <a href="{% url 'services' %}" class='rounded-full flex items-center gap-4 hover:text-white' title="Services"><i class='bx bx-server btn bg-purple-600 rounded-full text-xl items-center justify-center p-2 font-semibold w-10 h-10' id="btn-icon-6" title="Services"></i></a>
+      </div>
+    </div>
+   
+
+    <div class="block h-2.5 mt-[-15%]">
+      <div class="links-text-control block h-12">
+          <p class="hello-text mb-[10%] font-semibold text-2xl text-indigo-600">Hello...!</p>
+
+          <h1 class="texts text-2xl flex items-center gap-2 flex-nowrap font-semibold mb-10 w-[72%] p-2 rounded-sm bg-gradient-to-br from-purple-500 via-blue-500 to-orange-500 font-serif">Marcus <a href="{% url 'about' %}"><strong class="text-anime flex-nowrap text-purple-950 font-semibold text-2xl font-serif cursor-pointer">Edidiong</strong></a> Cletus</h1>
+
+          <div class="social-links mt-10 mb-8 gap-2 ml-[2%] font-semibold">
+              <a href="https://github.com/EdiCeM24"><i class='bx bxl-github text-2xl rounded-full w-10 h-10 bg-green-100 p-2 hover:text-fuchsia-600'></i></a> 
+              <a href="https://twitter.com/edi_cem24"><i class='bx bxl-twitter text-2xl rounded-full w-10 h-10 bg-green-100 p-2 hover:text-fuchsia-600'></i></a> 
+              <a href="https://instagram.com/Edi_CeM24"><i class='bx bxl-instagram text-2xl rounded-full w-10 h-10 bg-green-100 p-2 hover:text-fuchsia-600'></i></a> 
+              <a href="https://facebook.com/Eidiong Marcus"><i class='bx bxl-facebook text-2xl rounded-full w-10 h-10 bg-green-100 p-2 hover:text-fuchsia-600 text-black'></i></a>
+              <a href="https://linkedin.com/in/cletus-marcus"><i class='bx bxl-linkedin text-2xl rounded-full w-10 h-10 bg-green-100 p-2 hover:text-fuchsia-600'></i></a> 
+              <a class="mt-10 ml-1 bg-indigo-600 p-1 rounded text-white border-0 hover:text-sky-500 transition-shadow duration-150 ease-in-out" href="{% url 'blog' %}">Blog</a>
+          </div>
+          <span class="text-container text-xl mb-36  font-semibold"></span>
+      </div>
+    </div>
+
+    <div class="pics-img align-bottom items-center mt-[20%]">
+      <img class="main-image items-end cursor-pointer lg:w-[100%] mt-[40%] hover:sepia-50 rounded-lg bg-cover bg-right bg-local" src="{% static 'assets/images/edi.png' %}" alt="Photo">
+    </div>
+    
+  </div>
+
+  <section class="main-download ">
+    <div class="mt-[6%] ml-[20%]">
+      <a href="{% static 'assets/img/best_resume.pdf' %}" download><i class='bx bxs-download text-3xl text-blue-700 bg-blue-300 rounded-bl-full p-4' title="download"></i>Resume</a>
+    </div>
+
+  </section>
+    
+    
+
+
+
+
+
+    <div class="-mt-[40%] absolute top-0 px-3 py-2 w-1/2">
+      {% if user.is_authenticated %}
+            <p class="absolute bg-blue-600 text-xs top-3% -mt-[30%] text-white py-1 px-2 p-10" dismissed="true">Welcome! You are logged in as {{ user.username }}</p>
+            {% else %}
+              <p class="">You're Welcome to Edidiong's domain!</p>
+      {% endif %}   
+    </div>
+
+    <div id="message-container" class="absolute top-[6%] -mt-[2%] ml-[20%]">
+        {% if messages %}
+          {% for message in messages %}
+            <button id="message-cancel" class="alert {{ message.tags }} flex items-center gap-1 m-2 mb-6 bg-blue-700 rounded cursor-pointer text-white py-2 px-2 btn-close" aria-label="Close" id="msg" role="alert">
+                {{ message }} 
+              <i class='bx bx-x text-2xl text-gray-900 cursor-pointer dismissible' id="msg" style='color:#080808'></i>        
+            </button>
+          {% endfor %}
+        {% endif %} 
+    </div>
+
+    <script>
+        document.getElementById('message-cancel').addEventListener('click', () => {
+          document.getElementById('message-container').style.display = 'none';
+        });
+
+
+        /** ACTIVE BUTTON SELECTION **/
+        const buttons = document.querySelectorAll('.btn');
+        buttons.forEach((button) => {
+          button.addEventListener('click', () => {
+            //Remove activate class from all buttons
+            buttons.forEach((btn) => btn.classList.remove('active'));
+            // Add active class to the clicked button
+            button.classList.add('active');
+          });
+        });
+        
+    </script>
+{% endblock content %}

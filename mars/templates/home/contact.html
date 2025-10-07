@@ -1,0 +1,126 @@
+{% extends 'main/base.html' %}
+
+{% load compress %}
+
+{% load static %}
+
+{% block title %} | Contact {% endblock title %}
+
+
+
+{% block content %}
+    <div class="nav-icons-contact flex items-center gap-2 mb-6 mt-[13%] sm:mt-[25%] md:mt-[15%] lg:mt-[10%] bg-[#eee]">
+      <a href="{% url 'about' %}" title="About"><i class='bx bx-user text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100'></i></a>
+      <a href="{% url 'portfolio' %}" title="Portfolio"><i class="uil uil-bag text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100"></i></a>
+      <a href="{% url 'resume' %}" title="Resume"><i class="uil uil-file-alt text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100"></i></a>
+      <a href="{% url 'services' %}" title="Services"><i class='bx bx-server text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100'></i></a>
+    </div>
+     
+    <div class="contact-container">
+      <div class="contact mt-[20%]">
+        <div class="conatct-div flex items-center gap-1 justify-center">
+          <span class="text-2xl text-blue-700"><i class='bx bxs-contact' title="Get In Touch"></i></span>
+          <h2 class="contact-text text-3xl flex text-center justify-center font-semibold underline mb-5">Contact Us</h2>
+        </div>
+
+        <div class="flex flex-col text-justify">
+          <p class="flex flex-col sm:text-sx md:text-base max-w-[65%] ml-[16%]">
+            <strong>Get in touch with me!</strong> I am excited to hear from you and explore how I can be of help with your next project. I am Marcus Edidiong Cletus, a software Developer with a passion for Web and Mobile App Development. I'm here to help you bring your ideas to life. 
+          </p>
+        </div>
+
+        <section class="tele-contents flex items-center justify-center gap-8 mt-10 mb-6">
+          <div class="flex items-center gap-1">
+            <span class=""><i class='bx bxl-whatsapp text-green-500 text-xl font-semibold'></i></span>
+            <p class="">+234 814 562 7683</p>
+          </div>
+          <div class="flex items-center gap-1">
+            <span class=""><i class='bx bx-at text-blue-600 text-xl font-semibold'></i></span>
+            <a href="mailto: edimarsxe@gmail.com">edimarsxe@gmail.com</a>
+          </div>
+        </section>
+      </div>
+
+      
+      <div class="flex mt-[10%]">
+        <form class="max-w-md mx-auto mb-8" name="contact" method="post">
+          {% csrf_token %}
+
+              <!-- {% if messages %}
+              {% for message in messages %}
+                  <div class="alert {{ message.tags }} mt-[30%] m-2 mb-6 cursor-pointer" id="msg" role="alert">
+                    <button>{{ message }}</button>           
+                  </div>
+              {% endfor %}
+             {% endif %}     -->
+            
+            <div class="grid md:grid-cols-2 md:gap-6">
+              <div>
+                <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">First name</label>
+                <input type="text" name="fname" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" required />
+              </div>
+              <div>
+                <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Last name</label>
+                <input type="text" name="lname" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Doe" required />
+              </div>
+            </div>
+
+            <div class="relative z-0 w-full mb-5 group">
+              <label for="helper-text" class="block mb-2 mt-3 text-sm font-medium text-gray-900 dark:text-black">Your email</label>
+              <input type="email" name="email" id="helper-text" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@gmail.com">
+              <p id="helper-text-explanation" class="mt-2 text-sm text-gray-500 dark:text-gray-500">We’ll never share your details. Read our <a href="{% url 'privacy' %}" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Privacy Policy</a>.</p>
+            </div>
+
+            <div class="relative z-0 w-full mb-5 group">
+              <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Subject</label>
+              <input type="text" name="subject" id="subject" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Subject" required />
+            </div>  
+            
+            <div class="grid md:grid-cols-2 mb-3 md:gap-6">
+              
+              <div class="relative z-0 w-full mb-5 group">
+                <div class="relative">
+                  <span class="absolute start-0 bottom-3 text-gray-500 dark:text-gray-400">
+                      <svg class="w-4 h-4 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 19 18">
+                        <path d="M18 13.446a3.02 3.02 0 0 0-.946-1.985l-1.4-1.4a3.054 3.054 0 0 0-4.218 0l-.7.7a.983.983 0 0 1-1.39 0l-2.1-2.1a.983.983 0 0 1 0-1.389l.7-.7a2.98 2.98 0 0 0 0-4.217l-1.4-1.4a2.824 2.824 0 0 0-4.218 0c-3.619 3.619-3 8.229 1.752 12.979C6.785 16.639 9.45 18 11.912 18a7.175 7.175 0 0 0 5.139-2.325A2.9 2.9 0 0 0 18 13.446Z"/>
+                      </svg>
+                  </span>
+                  <input type="tel" name="phone_number" id="floating-phone-number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-7 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}" placeholder="0702-626-6495 " required />
+                  
+                  <label for="floating-phone-number" class="absolute text-md font-semibold text-gray-900 dark:text-black duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:start-6 -mt-4 peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Phone number</label>
+                </div>
+              </div>
+
+              <div class="relative z-0 w-full mb-5 group">
+                <div>
+                  <label for="company" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Company</label>
+                  <input type="text" name="company_name" id="company" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Edi_Mars or Google" required />
+                </div> 
+              </div>
+            </div>
+
+            <div>
+              <label for="website" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Website URL</label>
+              <input type="url" name="website" id="website" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="https://edimars.com" required />
+            </div>
+
+            <div class="max-w-sm mx-auto mt-4">
+              <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your message</label>
+              <textarea name="message" id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
+            </div>
+
+            <div class="flex items-start mb-6 mt-6">
+              <div class="flex items-center h-5">
+                <input id="remember" name="remember" type="checkbox" value="true" class="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required />
+              </div>
+              <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-500">I agree with the <a href="{% url 'terms' %}" class="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a>.</label>
+            </div>
+
+            <button type="submit" id="contact-btn" class="text-white bg-blue-700 hover:bg-blue-800 sm:w-[100%] sm:ml-[5%] md:w-[100%] md:ml-[5%] lg:ml-[3%] lg:w-[100%] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full cursor-pointer px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-10">Send Message</button>
+          
+        </form>
+      </div>
+    </div>
+
+    
+{% endblock content %}

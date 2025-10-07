@@ -1,0 +1,185 @@
+{% extends 'main/base.html' %}
+
+{% load compress %}
+
+{% load static %}
+
+{% block title %} | Resume {% endblock title %}
+
+
+
+{% block content %}
+   <div class="nav-icons-resume flex items-center gap-2 mb-6 mt-[10%] sm:mt-[20%] md:mt-[2%] lg:-mt-[4%] bg-[#eee]">
+      <a href="{% url 'about' %}" title="About"><i class='bx bx-user text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100'></i></a>
+      <a href="{% url 'contact' %}" title="Contact"><i class='bx bx-envelope text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100'></i></a>
+      <a href="{% url 'portfolio' %}" title="Portfolio"><i class="uil uil-bag text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100"></i></a>
+      <a href="{% url 'services' %}" title="Services"><i class='bx bx-server text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100'></i></a>
+   </div>
+
+   <div class="resume flex flex-col p-4 items-center justify-center mt-20 lg:mt-[20%]">
+     <div class="resume-heading flex items-center justify-center mt-[5%] gap-1 text-3xl text-blue-600 cursor-pointer mb-2">
+        <span class="border-gray-500 flex"><i class="uil uil-angle-right"></i></span>
+         <span><i class="uil uil-file-alt"></i></span>
+         <h2 class="text">Resume</h2>
+     </div>
+
+     <div class="resume-mount mt-[3%] mb-4 text-center justify-center">
+       <p class="container text-gray-500 dark:text-gray-500 text-xl font-serif font-semibold font-sans text-wrap">
+         This has been the truth about my devoted and dedicated achievements
+          that actually made me to strived in order to have the best moment 
+          of my life through much impact hoping to contribute in my successful 
+          careers and achievements in every aspect of my endeavors that will come
+           or be an opportunity seeking.
+       </p>
+     </div>
+
+   
+
+      <div class="flex flex-col mt-10 mb-8">
+         <strong class="text-sum justify-start text-3xl font-semibold mb-4">Summary</strong>
+         <article class="flex text-center justify-center">
+            <h1 class="text-3xl text-white rounded-lg font-semibold shadow-lg shadow-lime-500/50 bg-blue-800 px-4 py-4 outline-2 outline-offset-4 outline-cyan-500 font-serif">Marcus Edidiong Cletus</h1>
+         </article>
+
+         <section>
+            <p class="text-prio text-xl font-semibold text-justify justify-start text-wrap mt-2 p-8">
+               Innovative and deadline-driven Web and Mobile App Developer with 3<sup>+</sup> years of experience developing and deploying for production; making sure that clients' satisfaction is achieved.
+            </p>
+
+            <div class="text-identity flex flex-col p-4">
+               <span class="flex items-center gap-1 text-xl font-medium mb-2"><i class="uil uil-user-location text-blue-500 text-2xl"></i> <p class="text-2xl font-medium">Nigeria, Akwa Ibom State, Ika</p></span>
+               <span class="flex items-center gap-1 text-xl font-medium mb-2"><i class='bx bxl-whatsapp text-blue-500 text-2xl'></i> <p class="text-2xl font-medium">+234 (0) 812 425 3772</p></span>
+               <span class="flex items-center gap-1 text-xl font-medium mb-2"><i class='bx bx-at text-blue-500 text-2xl'></i> <p class="text-2xl font-medium">xevious077@gmail.com</p></span>
+            </div>
+         </section>
+
+         <section class="mt-10 sm:max-w-[300px] mb-[10%] md:max-w-[500px] lg:max-w-[600px] lg:ml-[30%]">
+            <strong class="justify-start text-3xl font-semibold mb-4">Skills</strong>
+            <ul class="flex p-4 flex-wrap justify-center gap-2 text-xl text-pretty">
+               <li>HTML,</li>
+               <li>CSS,</li>
+               <li>SASS,</li>
+               <li>JavaScript,</li>
+               <li>React js,</li>
+               <li>Next js,</li>
+               <li>Node js,</li>
+               <li>Python,</li>
+               <li>Django,</li>
+               <li>MySQL,</li>
+               <li>PostgresSQL,</li>
+               <li>MongoDB,</li>
+               <li>Git,</li>
+               <li>Unit Testing,</li>
+               <li>End-to-End Testing,</li>
+               <li>and</li>
+               <li>Responsive Web Design</li>
+            </ul>
+         </section>       
+         <div class="lg:mt-[10%]">
+            <h2 class="text-education text-3xl font-semibold mt-[6%] sm:mt-[10%] md:mt-[10%] sm:-ml-[80%] md:ml-[40%] lg:-mt-[14%] lg:ml-[4%]">Education</h2>
+         </div>
+      </div>
+
+
+      
+      <section class="resume-contents flex flex-col mb-1 transition mt-10 sm:mt-10 md:mt-14 lg:mt-[47%] duration-200">
+            
+            <div class="pro-hero-1 flex items-center p-4 lg:-ml-[3%] sm:ml-[15%] md:ml-[15%]  sm:-mt-[60%] md:-mt-[60%] justify-evenly gap-[10px] mt-0 mb-4">
+               
+               <div class="mt-[-6%]">
+                  <div class="pro-1 flex flex-col p-4 -mt-[7%] sm:mt-[70%] md:mt-[66%] lg:mt-[3%]">
+                     <strong class="mt-6">POSTGRADUATE OF COMPUTER SCIENCE</strong>
+                     <div class="flex items-center gap-2">
+                        <i class='bx bxs-school text-2xl text-blue-700 bg-blue-200 rounded-full'></i>
+                        <span class="mt-3 mb-2">Federal University Of Technology, Owerri, Imo State</span>
+                     </div>
+                     <span class="mt-2 mb-2">2025 - present</span>
+      
+                     <p class="resume-text-study w-[50%] text-pretty">
+                        Study computer science in pursuits to achieve my aim for masters. This has broaden my knowledge and skills in tech space making me the best suits for the 
+                        workforce.  
+                     </p>
+                  </div>
+      
+                  <div class="resume_pad flex flex-col p-4">
+                     <div class="flex items-center gap-2">
+                        <i class='bx bxs-graduation text-2xl font-semibold text-blue-700 bg-blue-200 rounded-full'></i>
+                        <strong class="mt-3 mb-2">Higher National Diploma in Computer Science</strong>
+                     </div>
+                     <div class="flex items-center gap-2">
+                        <i class='bx bxs-school text-2xl text-blue-700 bg-blue-200 rounded-full'></i>
+                        <span>FEDERAL POLYTECHNIC, NEKEDE, IMO STATE</span>
+                     </div>
+                     <span class="mt-2 mb-3">2018 - 2023</span>
+                     <p class="w-[50%] text-pretty">
+                        Obtained my Higher National Diploma (HND) Certificate in Computer Science graduated above mentioned years. 
+                     </p>
+                  </div>
+
+                  <div class="context-heading-1 ml-[54%] flex flex-col">
+                     <div class="flex items-center gap-2 mb-3">
+                        <i class='bx bx-code-alt text-2xl text-blue-700 bg-blue-200 rounded-full'></i>
+                        <strong>Web Development</strong>
+                     </div>
+                     <h2 class="mb-2 ml-8">Integrated Oasis </h2>
+                     <span class="mb-2 ml-8">2021 - 2022</span>
+                  </div>
+
+                  <div class="context-heading-2 ml-[56%] flex flex-col">
+                     <div class="flex items-center gap-2 mb-3">
+                        <i class='bx bx-code-alt text-2xl text-blue-700 bg-blue-200 rounded-full'></i>
+                        <strong>Mobile App Development</strong>
+                     </div>
+                     <h2 class="mb-2 ml-8">Integrated Oasis </h2>
+                     <span class="mb-2 ml-8">2022 - 2023</span>
+                  </div>
+              </div>
+   
+               <div class="pro-hero-2 mt-[-29%] "> 
+                  <h2 class="head-text-resume text-2xl font-semibold mb-1 -mt-[-40%] -ml-[10%] sm:mt-[70%]">Professional Experience</h2>
+      
+                  <div class="fine-text-pro">
+                     <div class="pro-2 p-2 text-base -ml-8">
+                        <strong class="pro-3 -mt-[10%]">JUNIOR WEB DEVELOPER</strong>
+                        <p class="pro-text mt-2">Integrated Oasis Technology, Imo State, Nigeria.</p>
+                        <span class="pro-text-2 flex flex-col mt-2">2023 - 2024</span>
+                        <ul class="gap-y-3 px-6 mt-3 m-3 py-4">
+                           <li class="mb-2">Developed responsive websites using HTML5, CSS, SASS, React.js, JavaScript, Node.js, Python and Django.</li>
+                           <li class="mb-2">Designed database structures for web applications using SQL or NoSQL databases.</li>
+                           <li class="mb-2">Ensured cross-browser compatibility of websites on various platforms.</li>
+                           <li class="mb-2">Helped manage fast-paced software delivery model from within complex development ecosystem.</li>
+                        </ul>
+                     </div>
+      
+                     <div class="text-base -ml-[6%]">
+                        <strong class="pro-4">JUNIOR MOBILE APP DEVELOPER</strong>
+                        <p class="pro-text-3 mt-3">Integrated Oasis Technology, Imo State, Nigeria.</p>
+                        <span class="pro-text-4 flex flex-col mt-2">2025 - present</span>
+                     
+                        <ul class="mt-3 mb-2">
+                           <li class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, provident.</li>
+                           <li class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, provident.</li>
+                           <li class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, provident.</li>
+                           <li class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, provident.</li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>  
+      </section>
+      
+      <section class="flex items-center mt-[10%]">
+         <i class="uil uil-angle-left text-3xl text-green-700 cursor-pointer"></i>
+           <strong>If more is required of me, then, my resume is there to unveil more if downloaded.</strong>
+         <i class="uil uil-angle-right text-3xl text-green-700 cursor-pointer"></i> 
+      </section>
+
+
+     
+     
+      
+      
+
+   </div>  
+   <script src="{% static 'scripts/js/resume.js' %}"></script>  
+{% endblock content %}

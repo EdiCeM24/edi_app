@@ -1,0 +1,83 @@
+{% extends 'main/base.html' %}
+
+    {% load compress %}
+    
+    {% load static %}
+    
+    {% block title %} | Terms & Conditions {% endblock title %}
+
+
+{% block content %}
+     <h2 class="terms-heading flex items-center justify-center mt-[15%]">TERMS OF USE</h2>
+     <p class="terms-text mt-4 mb-3 text-xl">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet ad, quasi similique quis dolorem libero expedita nulla velit atque eveniet officiis id? Ab iure similique doloribus doloremque nihil odio at earum enim distinctio voluptatem nam, blanditiis molestias, numquam dicta eos.
+     </p>
+
+    <div class="terms-container grid grid-cols-2 gap-4">
+        <div class="terms-first-content border-4 rounded-md border-amber-400 mt-6">
+            <a href="#" class="flex items-center justify-center bg-gradient-to-r to-blue-700 via-pink-700 from-green-600 text-xl text-amber-100 cursor-pointer uppercase font-serif font-semibold">Nav Bank</a>
+            <strong class="flex items-center justify-center text-xl font-semibold mt-5 mb-6 text-blue-500">How to Use</strong>
+            {% for product in items %}
+               <article class="terms-items">
+                  <p class="p-4 mb-4 text-pretty text-slate-900 font-light font-serif">
+                     {{ product.message }} 
+                  </p>
+                  <div class="">
+                     <a href="">
+                       <img src="{{ product.image }}" alt=""> 
+                     </a>
+                  </div>
+                  <div class=" text-pretty font-semibold text-cyan-500 flex items-center">
+                    <p class="text-sm font-extralight font-serif p-4 mt-[-6%]">{{ product.author }}</p>
+                    <p class="text-sm font-extralight font-serif p-4 mt-[-6%]">{{ product.created_time }}</p>
+                 </div>
+               </article>
+            {% endfor %}   
+        </div>
+        <section class="">
+               <div class="terms-first-content border-4 rounded-md border-amber-400 mt-6">
+                     <a href="#" class="flex items-center justify-center bg-gradient-to-r to-blue-700 via-pink-700 from-green-600 text-xl text-amber-100 cursor-pointer uppercase font-serif font-semibold">Nav Bank</a>
+                     
+                     <article class="terms-items">
+                        <strong class="flex items-center justify-center text-xl font-semibold mt-5 mb-6 text-blue-500">Copy Right Rules</strong>
+                        <p class="p-4 mb-4 text-pretty text-slate-900 font-light font-serif">
+                          
+                        </p>
+                        <div class="flex flex-col">
+                           <p class="text-sm"></p>
+                        </div>
+                     </article>
+               </div>
+            </div>
+              <div class="anime animate animate-ping rounded-full">
+               <div class="aninie animate-pulse translate-10  antialiased p-[20%] ml-24 mt-[12%] rounded-full">
+                  <p class="text-red-900 text-2xl font-serif font-semibold">Trust in God and Respect Web Developer.</p>
+                </div>
+              </div>
+            
+         </section> 
+         <section class="terms-main mt-[50%]">
+            <div class="terms-main-text border border-amber-600 w-full">
+               <p class=" text-left px-4 py-6">
+                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci nesciunt voluptatem quas optio in velit. Ipsam eligendi possimus quia accusamus cupiditate dicta dolor corporis doloremque. 
+               </p>
+            </div>
+         </section>
+
+
+
+<style>
+   .anime {
+      background-color: aqua;
+      width: 50%;
+      height: 50%;
+   }  
+     
+   .aninie {
+      background-color: blue;
+      width: 60%;
+      height: 50%;
+      padding: 20px 40px;
+   }
+</style>
+{% endblock content %}

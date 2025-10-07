@@ -1,0 +1,100 @@
+{% extends 'main/base.html' %}
+
+{% load compress %}
+
+{% load static %}
+
+{% block title %} | Portfolio {% endblock title %}
+
+
+
+{% block content %}
+      <div class="nav-icons-portfolio flex items-center gap-2 mb-6 mt-[10%] sm:mt-[20%] md:mt-[15%] lg:mt-[10%] float-end bg-[#eee] p-10">
+         <a href="{% url 'about' %}" title="About"><i class='bx bx-user text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100'></i></a>
+         <a href="{% url 'contact' %}" title="Contact"><i class='bx bx-envelope text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100'></i></a>
+         <a href="{% url 'resume' %}" title="Resume"><i class="uil uil-file-alt text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100"></i></a>
+         <a href="{% url 'services' %}" title="Services"><i class='bx bx-server text-2xl text-blue-700 hover:text-cyan-700 transition duration-150 delay-100'></i></a>
+      </div>
+
+      <div class="portfolio-heading mt-[18%] flex items-center justify-center">
+         <div class="flex items-center justify-center gap-1 cursor-pointer">
+            <i class="uil uil-bag text-2xl text-blue-600 ml-[-10%]"></i>
+            <h1 class="portfolio-h1 ml-[5%] text-2xl text-gray-600 font-serif">PORTFOLIO <span class="text-2xl text-blue-700 text-smooth hover:text-orange-500 transition duration-150 ease-in-out">SECTION</span></h1>
+         </div>
+      </div>
+
+      <div class="portfolio-head-text flex flex-col mt-6">
+         <article class="portfolio-text max-w-fit">
+            <p class="max-w-fit text-base text-center font-serif">
+              Projects are the creative activities utilized to prove the skills acquired from various fields of studies and learnings over the years put in place 
+              to be the right candidate for the jobs. Here are the projects on photo forms to convince your querying thoughts. <a href="{% url 'portfolioDetails' %}" class="text-sm text-blue-600">Read More</a>
+            </p>
+         </article>
+      </div>
+
+      <div class="portfolio-pics mt-[6%] mb-[20%] p-4 m-auto grid grid-cols-3 ">
+         {% for pics in ports %}
+            
+              <div class="overflow-hidden">
+                  <strong class="flex text-center justify-center mt-6 mb-1">{{ pics.caption }}</strong>
+                 <div class="group">
+                    <a href="#" class="">
+                       <i class='bx bx-link text-gray-600 flex text-center text-2xl justify-start absolute mt-16 hover:opacity-100 opacity-0 hover:block ml-[14%]'></i>
+                       <img class="portfolio-pics w-[70%] h-[70%] mt-1 flex flex-col m-auto py-4 px-2 rounded-md" src="{{ pics.image.url }}" alt="">
+                    </a>
+                    <div class="vid-text-contents group-hover:block hidden drop-down-menu transition duration-150 ease-in-out w-[80%] p-2 ml-8">
+                       <p class="flex text-center justify-center mb-2"><small>{{ pics.text }}</small></p>
+                       <a href="{% url 'portfolioDetails' %}" class="flex text-center justify-center mt-6 mb-1 text-xl text-blue-600 hover:text-blue-800 transition duration-150 ease-in-out opacity-100">{{ pics.readMore }}</a>
+                       <span class="flex text-center justify-center mt-2 mb-2"><small>{{ pics.created_at }}</small></span>
+                    </div>
+                 </div>
+              </div>
+
+         {%  endfor %}
+      </div>
+
+
+      <div class="vid-header flex text-center justify-center mt-[20%]">
+         <h2 class="uppercase font-serif">Projects on video</h2>
+      </div>
+      <div class="vid-heading text-base max-w-[600px] mt-[10%] mb-4">
+         <p class="font-serif max-w-[700px] justify-center text-center ml-[20%]">
+           Having projects in video are the evidence that I am capable of making you have the best satisfaction, and be convinced that the expecting result is sure.
+           <a href="{% url 'portfolioDetails' %}" class="text-xs text-blue-600">Read More</a> 
+         </p>
+      </div>
+
+      <div class="port-vid mt-[10%] p-4 m-auto grid grid-cols-3 mb-10">
+         {% for photo in portVid %}
+              <div class="overflow-hidden" id="check-open">
+                 <strong class="flex text-center justify-center mt-6 mb-1">{{ photo.caption }}</strong>
+                 <div class="group" aria-hidden="true">
+                    <a href="#" class="transition duration-150 ease-in-out">
+                       <i class='bx bx-link text-gray-600 flex text-center text-2xl justify-start absolute mt-16 hover:opacity-100 opacity-0 hover:block ml-[14%]'></i>
+                       <video src="{{ photo.image.url }}" controls class="port-vid-show hover:scale w-[70%] h-[70%] mt-1 flex flex-col m-auto py-4 px-2 rounded-md"></video>
+                    </a>
+                    <div class="group-hover:block hidden drop-down-menu transition duration-150 ease-in-out w-[80%] p-2 ml-8">
+                       <p class="flex text-center justify-center mb-2"><small>{{ photo.text }}</small></p>
+                       <a href="{% url 'portfolioDetails' %}" class="flex text-center justify-center mt-6 mb-1 text-xl text-blue-600 hover:text-blue-800 transition duration-150 ease-in-out opacity-100">{{ photo.readMore }}</a>
+                       <span class="flex text-center justify-center mt-2 mb-2"><small>{{ photo.created_at }}</small></span>
+                    </div>
+                 </div>
+              </div>
+
+         {%  endfor %}
+      </div>
+
+ 
+
+      
+
+
+   <script src="{% static 'scripts/js/Portfolio.js' %}"></script>
+   <script>
+      const picsOpen = document.getElementById('check-open');
+      picsOpen.addEventListener('click', () => {
+        let togglePics = '';
+
+      });
+   </script>
+{% endblock content %}

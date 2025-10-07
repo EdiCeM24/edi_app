@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+{% load compress %}
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Portfolio Website">
+    <meta name="keywords" content="HTML5, CSS, JavaScript, Python">
+    <meta name="author" content="Marcus Edidiong Cletus">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon3.ico' %}" type="image/x-icon">
+    <title>Edidiong's{% block title %} {% endblock title %}</title>
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.1/css/boxicons.min.css" integrity="sha512-QFPgv160B7hqiaf+HdW6HkJZ53DHQOlpraV98UdNAqU7h30lWu/bYwg/rTceL/l5P1U18IcQKkyAmtUX872qHQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+    
+    
+   <link rel="stylesheet" href="{% static 'swiper/swiper-bundle.min.css' %}" />
+    <script src="{% static 'swiper/swiper-bundle.min.js' %}"></script>
+</head>
+<body class="bg-green-50 box-border p-4">
+  
+    <header>
+        {% include 'includes/nav.html' %} 
+    </header>
+
+    <div class="container mx-auto mt-4">
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+
+    <footer>
+        {% include 'includes/footer.html' %} 
+    </footer>
+    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+      
+      
+      
+      
+      <script>
+        const ctx = document.getElementById('myChart');
+      
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            datasets: [{
+              label: '# of Votes',
+              data: {{data|safe}},
+              backgroundColor: [
+                   'red', 'blue', 'green', 'cyan', 'orange', 'pink', 'indigo', 'gray', 'purple', 'yellow', 'brown', 'lime'
+              ],
+              borderWidth: 1,
+              label: 'Label'
+            }],
+            labels: {{labels|safe}},
+          },
+          options: {
+            responsive: true,
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      </script>
+
+
+      <!-- SWIPER SECTION -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {   
+            const swiper = new Swiper('.swiper', {
+              // Optional parameters
+              direction: 'vertical',
+              loop: true,
+              
+              slidesPerView: 1,
+              spaceBetween: 10,
+              // using "ratio" endpoints
+              breakpoints: {
+                  '@600': {   // @0.75
+                  slidesPerView: 1,
+                  spaceBetween: 10,
+                  },
+                  '@980': {   //@1.00
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                  },
+                  '@1024': {   // @1.50
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                  },
+                  '@1440': {   // @1.50
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                  },
+              },
+
+              // If we need pagination
+              pagination: {
+                  el: '.swiper-pagination',
+                  clickable: false,
+              },
+
+              // Navigation arrows
+              navigation: {
+                  nextEl: '.swiper-button-next',
+                  prevEl: '.swiper-button-prev',
+              },
+              effect: "fade",
+              fadeEffect: {
+              crossFade: true,
+              },
+            }); 
+        }); 
+      </script>
+      
+    <script src="{% static 'scripts/js/app.js' %}" type="module"></script>
+    <script src="{% static 'scripts/js/about.js' %}"></script>
+    <script src="{% static 'scripts/js/portfolio.js' %}"></script>
+    <script src="{% static 'scripts/js/resume.js' %}"></script>
+    <script src="{% static 'scripts/js/services.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.1/dist/boxicons.js" integrity="sha512-YYqDo9RDiFmWWI2HdJ+DX7TMh3DWkbAmiXR9R9vAoKXX983Yl1mTfZ3eY9BdajtaCA3lAtgNhwSwkagWV32enQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
