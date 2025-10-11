@@ -4,10 +4,11 @@
   "main": "index.js",
   "scripts": {
     "start": "npx @tailwindcss/cli -i ./static/src/input.css -o ./static/src/output.css --watch",
+    "build": "npx @tailwindcss/cli -i ./static/src/input.css -o ./static/src/output.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Marcus Edidiong Cletus - EdiMars",
   "license": "ISC",
   "description": "",
   "devDependencies": {

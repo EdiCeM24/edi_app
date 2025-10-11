@@ -1,0 +1,9 @@
+{% load static %}
+
+{% load socialaccount %}
+
+<div class="flex items-center justify-center space-x-4">
+    <a href="{% provider_login_url 'github' %}">GitHub</a>
+
+    <a href="{% provider_login_url 'google' %}">Google</a>
+</div>

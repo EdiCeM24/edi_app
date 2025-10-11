@@ -1,0 +1,70 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% load compress %}
+
+
+
+
+{% block title %} | Registration {% endblock title %}
+
+<main class="mx-auto items-center p-8">
+   {% block content %}
+   <div class="block items-center justify-around bg-gradient-to-t from-gray-400 via-rose-200 to-yellow-300 p-16 w-[70%] ml-[15%] mt-[10%]">
+       <div class=" flex items-center justify-center bg-gray-50 p-4 rounded-md w-[50%]">
+          {% if messages %}
+              {% for message in messages %}
+                 {% if message.tags == 'error' %}
+                    <span><h4 class="text-rose-950">{{ message }}</h4></span>
+                  {% else %}
+                     <span><h4 class="text-blue-950">{{ message }}</h4></span>
+                   {% endif %}
+               {% endfor %}  
+           {% endif %}        
+       </div>
+      <h2 class="ml-[45%] mb-4 text-rose-950 text-xl font-semibold font-serif">Register</h2>
+
+      <form method="post" class="bg-amber-50 p-8 rounded-md shadow-2xl">
+            {% csrf_token %}  
+            <div class="flex items-center justify-evenly bg-gray-50 p-[2%] gap-1 rounded-md">
+                <input type="text" class="bg-slate-800 p-2 w-[40%] rounded-md outline-none border-t-none border-l-0 border-r-0 border-b-2 text-white" name="firstName" id="firstName" placeholder="Enter your first name" required> 
+                <input type="text" class="bg-slate-800 p-2 w-[40%] rounded-md outline-none border-t-none border-l-0 border-r-0 border-b-2 text-white" name="lastName" id="firstName" placeholder="Enter your last name" required> 
+            </div>
+            <div class="flex items-center justify-evenly bg-gray-50 p-[2%] gap-1 rounded-md">
+                <input type="text" class="bg-slate-800 p-2 w-[40%] rounded-md outline-none border-t-none border-l-0 border-r-0 border-b-2 text-white" name="username" id="username" placeholder="Enter your username" required> 
+                <input type="email" class="bg-slate-800 p-2 w-[40%] rounded-md outline-none border-t-none border-l-0 border-r-0 border-b-2 text-white" name="email" id="email" placeholder="Enter your email" required> 
+            </div>
+            <div class="flex items-center justify-evenly bg-gray-50 p-[2%] gap-1 rounded-md">
+                <input type="password" class="bg-slate-800 p-2 w-[40%] rounded-md outline-none border-t-none border-l-0 border-r-0 border-b-2 text-white" name="password1" id="password1" placeholder="Enter your password" required> 
+                <input type="password" class="bg-slate-800 p-2 w-[40%] rounded-md outline-none border-t-none border-l-0 border-r-0 border-b-2 text-white" name="password2" id="password2" placeholder="Confirm your password" required> 
+            </div>
+
+            <div class="flex items-center justify-evenly bg-gray-50 p-[2%] gap-1 rounded-md">
+            <p class="ml-[-5%] text-base font-semibold text-slate-900 ">Have an account? <a href="{% url 'login' %}" class="hover:underline text-blue-800 hover:text-rose-500 font-semibold text-base transition duration-150 ease-in-out">Login</a></p>
+            </div>
+
+            <button type="submit" class="border-none bg-blue-900 rounded-md hover:bg-blue-600 transition duration-150 ease-in-out text-white font-serif font-semibold p-2 pyrounded-sm w-[40%] ml-[30%] cursor-pointer mt-6">Submit</button>
+
+            <p class="ml-[45%] text-xl font-semibold p-2 mt-3 mb-3 text-rose-600 bg-green-50">or</p>
+            <div class="ml-[35%] mt-3 mb-3 p-4 bg-green-50">
+                 {% if user.is_authenticated %}
+                    <p class="text-base font-semibold font-serif">Welcome {{ user.username }}</p>
+                    {% else %} 
+                       <div class="block items-center justify-evenly gap-[10%]">
+                          <p class="ml-[10%] text-xl font-semibold text-slate-800 font-serif">Sign Up with</p>
+                            <div class="">
+                               <div class="mt-5 mb-4">
+                                 {% include 'includes/nav.html' %} 
+                               </div>
+                            </div>
+                        </div>
+                {% endif %}
+            </div>
+
+        </form>
+   </div>
+   {% endblock content %}
+</main>   
