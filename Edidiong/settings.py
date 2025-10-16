@@ -36,6 +36,11 @@ DB_PORT = os.getenv('DB_PORT')
 
 
 # For allauth configuration
+GITHUB_CLIENT_ID = str(os.getenv('GITHUB_CLIENT_ID'))
+GITHUB_CLIENT_SECRET = str(os.getenv('GITHUB_CLIENT_SECRET'))
+
+GOOGLE_CLIENT_ID = str(os.getenv('GOOGLE_CLIENT_ID'))
+GOOGLE_CLIENT_SECRET = str(os.getenv('GOOGLE_CLIENT_SECRET'))
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -58,7 +63,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blogs.apps.BlogsConfig',
     'mars.apps.MarsConfig',
-    'compressor',
+    # 'compressor',
     'crispy_forms',
     'phonenumber_field',
     
@@ -85,21 +90,34 @@ SOCIALACCOUNT_PROVIDERS = {
         # (``socialaccount`` app) containing the required client
         # credentials, or list them here:
         'APP': {
-            'client_id': '123',
-            'secret': '456',
+            'client_id': 'GOOGLE_CLIENT_ID',
+            'secret': 'GOOGLE_CLIENT_SECRET',
             'key': ''
         }
     },
     'github': {
+         "VERIFIED_EMAIL": True,
         'APP': {
-            'client_id': '123',
-            'secret': '456',
+            'client_id': 'GITHUB_CLIENT_ID',
+            'secret': 'GITHUB_CLIENT_SECRET',
             'key': ''
         }
     }
 }    
 
-SITE_ID = 1
+SITE_ID = 2
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+LOGIN_REDIRECT_URL = 'base'
+
+LOGIN_REDIRECT_URL = 'home'
+
+LOGIN_REDIRECT_URL = '/'
+
+LOGOUT_REDIRECT_URL = '/'
+
+SOCIALACCOUNT_LOGIN_ON_GET = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -190,15 +208,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/'
 MEDIA_ROOT = os.path.join(BASE_DIR / 'media')
 
-COMPRESS_ROOT = BASE_DIR / 'static'
+# COMPRESS_ROOT = BASE_DIR / 'static'
 
-COMPRESS_ENABLED = True
+# COMPRESS_ENABLED = True
 
-STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
+# STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.template.context_processors.request',
-)
+# TEMPLATE_CONTEXT_PROCESSORS = (
+#     'django.template.context_processors.request',
+# )
 
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 7 # 1 week.
 
@@ -229,3 +247,20 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+
+SOCIALACCOUNT_LOGIN_ON_GET = True
+SOCIALACCOUNT_AUTO_SIGNUP = True
+SOCIALACCOUNT_UNIQUE_EMAIL = True
+SOCIALACCOUNT_EMAIL_AUTHENTICATION = True
+SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
+SOCIALACCOUNT_EMAIL_VERIFICATION = "none"
+
+ACCOUNT_ADAPTER = "mars.adapters.CustomAccountAdapter"
+SOCIALACCOUNT_ADAPTER = "mars.adapters.SocialAccountAdapter"
+
+
+
+
+
+
+

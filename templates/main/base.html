@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-{% load compress %}
 
 {% load static %}
 
@@ -15,9 +14,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{% static 'assets/images/favicon3.ico' %}" type="image/x-icon">
     <title>Edidiong's{% block title %} {% endblock title %}</title>
-    {% compress css %}
+    
     <link rel="stylesheet" href="{% static 'src/output.css' %}">
-    {% endcompress %}
+    
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.1/css/boxicons.min.css" integrity="sha512-QFPgv160B7hqiaf+HdW6HkJZ53DHQOlpraV98UdNAqU7h30lWu/bYwg/rTceL/l5P1U18IcQKkyAmtUX872qHQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>

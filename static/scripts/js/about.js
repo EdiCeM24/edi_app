@@ -28,63 +28,9 @@ const containers = document.querySelector('.text-slider');
 
 
 
-      //SWIPER SECTION
-      
-         // document.addEventListener("DOMContentLoaded", function () {   
-         //    const swiper = new Swiper('.swiper', {
-         //       // Optional parameters
-         //       direction: 'vertical',
-         //       loop: true,
-               
-         //       slidesPerView: 1,
-         //       spaceBetween: 10,
-         //       // using "ratio" endpoints
-         //       breakpoints: {
-         //          '@600': {   // @0.75
-         //          slidesPerView: 1,
-         //          spaceBetween: 10,
-         //          },
-         //          '@980': {   //@1.00
-         //             slidesPerView: 2,
-         //             spaceBetween: 20,
-         //          },
-         //          '@1024': {   // @1.50
-         //             slidesPerView: 3,
-         //             spaceBetween: 30,
-         //          },
-         //          '@1440': {   // @1.50
-         //             slidesPerView: 4,
-         //             spaceBetween: 30,
-         //          },
-         //       },
-
-         //       // If we need pagination
-         //       pagination: {
-         //          el: '.swiper-pagination',
-         //          clickable: false,
-         //       },
-
-         //       // Navigation arrows
-         //       navigation: {
-         //          nextEl: '.swiper-button-next',
-         //          prevEl: '.swiper-button-prev',
-         //       },
-         //       effect: "fade",
-         //       fadeEffect: {
-         //       crossFade: true,
-         //       },
-         //    }); 
-         // }); 
-      
 
 
-// TOGGLE FAQs SECTION
-let faq = document.querySelector('.faq-icon i ');
-const dem = () => {
-  faq.addEventListener('click', () => {
-    faq.classList.toggle('open');
-  })
-};
+ 
 
 
 // Count onscroll

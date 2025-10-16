@@ -4,8 +4,6 @@
 
 {% load crispy_forms_tags %}
 
-{% load compress %}
-
 
 
 
@@ -48,20 +46,19 @@
 
             <button type="submit" class="border-none bg-blue-900 rounded-md hover:bg-blue-600 transition duration-150 ease-in-out text-white font-serif font-semibold p-2 pyrounded-sm w-[40%] ml-[30%] cursor-pointer mt-6">Submit</button>
 
-            <p class="ml-[45%] text-xl font-semibold p-2 mt-3 mb-3 text-rose-600 bg-green-50">or</p>
-            <div class="ml-[35%] mt-3 mb-3 p-4 bg-green-50">
+            <p class="ml-[43%] text-xl font-semibold p-2 mt-3 mb-3 text-rose-600">or</p>
+            <div class="ml-[-4%] mt-3 mb-3 p-4">
                  {% if user.is_authenticated %}
                     <p class="text-base font-semibold font-serif">Welcome {{ user.username }}</p>
                     {% else %} 
                        <div class="block items-center justify-evenly gap-[10%]">
-                          <p class="ml-[10%] text-xl font-semibold text-slate-800 font-serif">Sign Up with</p>
-                            <div class="">
-                               <div class="mt-5 mb-4">
-                                 {% include 'includes/nav.html' %} 
-                               </div>
-                            </div>
+                          <p class="ml-[35%] mb-2 text-xl font-semibold text-slate-800 font-serif">Sign Up with</p>
+                            
                         </div>
                 {% endif %}
+                <div class="flex items-center mb-3 justify-evenly gap-[10%]">
+                  {% include 'includes/socials_accounts.html' %}
+                </div>
             </div>
 
         </form>
