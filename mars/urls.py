@@ -28,12 +28,6 @@ urlpatterns = [
     ),
     
     path(
-        'contact_success/', 
-        views.contact_success, 
-        name='contact_success'
-    ),
-    
-    path(
         'dashboard/', 
         views.dashboard, 
         name='dashboard'

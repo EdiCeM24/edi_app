@@ -1,13 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import auth, User
 from django.http import HttpResponse
-from .forms import CustomPasswordResetForm
-#from apps.userprofile.models import Profile
 from django.db import IntegrityError
-from django.core.mail import send_mail
 from django.urls import reverse_lazy
 import uuid
-from django.core.mail import send_mail
 from django.conf import settings
 from django.template.loader import render_to_string
 from .forms import *
@@ -22,16 +18,15 @@ from django.contrib import messages
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.conf import settings
-from .forms import ContactForm
 from django.contrib.auth import authenticate, login as auth_login, logout
 
 
-# @login_required(login_url='/login/')
+@login_required(login_url='/login/')
 def home(request):
     return render(request, 'home/index.html')
 
 
-# @login_required(login_url='/login/')
+@login_required(login_url='/login/')
 def about(request):
     labels = []
     data = []
@@ -55,11 +50,12 @@ def about(request):
     })
     
     
+@login_required(login_url='/login/')    
 def blog(request):
     return render(request, 'html/blog.html')    
 
 
-# @login_required(login_url='/login/')
+@login_required(login_url='/login/')
 def contact(request):
     if request.method == "POST":
         
@@ -99,32 +95,19 @@ def contact(request):
     return render(request, 'home/contact.html')
    
 
-def contact_success(request):
-    return render(request, 'home/contact_success.html')
-
-
 @login_required(login_url='/login/')
 def dashboard(request):
     return render(request, 'home/dashboard.html')
 
-
-# def signup(request):
-#     if request.method == 'POST':
-#         first_name = request.POST.get('fname').strip()
-#         last_name = request.POST.get('lname').strip()
-#         username = request.POST.get('username').strip()
-#         email = request.POST.get('email').strip()
-#         password1 = request.POST['password1'].strip()
-#         password2 = request.POST['password2'].strip()
-        
+       
 def registerView(request):
     if request.method == 'POST':
-        first_name = request.POST.get('firstName')
-        last_name = request.POST.get('lastName')
-        username = request.POST.get('username')
-        email = request.POST.get('email')
-        password = request.POST.get('password1')
-        password2 = request.POST.get('password2')
+        first_name = request.POST.get('firstName').strip()
+        last_name = request.POST.get('lastName').strip()
+        username = request.POST.get('username').strip()
+        email = request.POST.get('email').strip()
+        password = request.POST.get('password1').strip()
+        password2 = request.POST.get('password2').strip()
         
         user_data_has_error = False
 
@@ -161,18 +144,11 @@ def registerView(request):
     return render(request, 'auth/register.html')
 
 
-
-    
-
-# def login(request):
-#     if request.method == 'POST':
-#         username = request.POST.get('username').strip()
-#         password = request.POST.get('password').strip()
-#         remember_me = request.POST.get('remember_me')
+#       remember_me = request.POST.get('remember_me')
 def loginView(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+        username = request.POST.get('username').strip()
+        password = request.POST.get('password').strip()
         #authenticate user credentials:
         user = authenticate(request, username=username, password=password)
 
@@ -294,7 +270,7 @@ def portfolio(request):
     })
     
 
-# @login_required(login_url='/login/')
+login_required(login_url='/login/')
 def portfolioDetails(request):
     details = PortfolioDetail.objects.all()
     video = PortVideo.objects.all()
@@ -304,12 +280,12 @@ def portfolioDetails(request):
     })    
     
 
-# @login_required(login_url='/login/')
+@login_required(login_url='/login/')
 def resume(request):
     return render(request, 'home/resume.html')
 
 
-# @login_required(login_url='/login/')
+@login_required(login_url='/login/')
 def services(request):
     served = Services.objects.all()
     return render(request, 'home/services.html', {
@@ -318,7 +294,7 @@ def services(request):
 
 
 
-# @login_required(login_url='/login/')
+@login_required(login_url='/login/')
 def feedBack(request):
     if request.method == 'POST':
         feed_back = Feed_back()
@@ -339,32 +315,12 @@ def feedBack(request):
     return render(request, 'home/feed-back.html')
 
 
-# @login_required
-def profile_view(request):
-    if request.method == 'POST':
-        profile = Profile(data=request.POST)
-        image = request.POST.get('image')
-        profile.image = image
-        if profile.is_valid():
-                messages.success(request, 'Your profile image has been successfully uploaded!')
-                profile.save()
-                return redirect('home')
-    else:
-        messages.error(request, 'Profile image is not uploaded!')
-        return redirect('profile')
-        
-    
-    return render(request, 'home/profile.html', {
-        'profile': image 
-        })    # context is not passed again.
-
-
-# @login_required(login_url='/login/')
+@login_required(login_url='/login/')
 def private(request):
     policy = Privacy_policy.objects.all()
     return render(request, 'home/private.html', {'policy': policy})
 
-# @login_required(login_url='/login/')
+@login_required(login_url='/login/')
 def terms(request):
     items = Term.objects.all()
     return render(request, 'home/terms.html', {'items': items})

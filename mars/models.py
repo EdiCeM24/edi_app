@@ -1,12 +1,10 @@
-from django.db import models, IntegrityError
+from django.db import models
 from django.db.utils import DatabaseError
 from django.db import connection
 from phonenumber_field.modelfields import PhoneNumberField
 from django.core.validators import RegexValidator, EmailValidator, MinLengthValidator, MaxValueValidator
-from django.contrib.auth.models import User
-# from django.contrib.auth.models import AbstractUser
-from django.core.exceptions import ValidationError
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User      # this is the default user model or a single user model
+from django.contrib.auth import get_user_model   # this is the current user model
 import uuid
 
 
@@ -137,42 +135,7 @@ class Skill(models.Model):
     numInPercentage = models.IntegerField()
      
     def __str__(self):
-        return self.name    
-    
-    
-class Profile(models.Model):
-        def __str__(self):
-            return f"{self.user.username}'s profile"
-            username = models.CharField(
-            max_length=30,
-            validators=[MinLengthValidator(3), MaxValueValidator(30)],
-            unique=True                        
-        )
-     
-        def clean(self):
-         if not self.username.isalnum():
-            raise ValidationError('Username should only contain alphanumeric characters.')
-        
-        user = models.OneToOneField(User, on_delete=models.CASCADE)
-        first_name = models.CharField(max_length=30, blank=True, null=True)
-        last_name = models.CharField(max_length=30, blank=True, null=True)
-
-        email = models.EmailField(
-            max_length=25,
-            validators=[EmailValidator],
-            unique=True
-        )
-        password1 = models.CharField(
-            max_length=12,
-            validators=[MinLengthValidator(4)]
-            )
-        password2 = models.CharField(
-            max_length=12,
-            validators=[MinLengthValidator(4)]
-            )
-        
-        def __str__(self):
-            return self.username    
+        return self.name   
     
 
 class Term(models.Model):
@@ -183,7 +146,7 @@ class Term(models.Model):
     created_time = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     
     def __str__(self):
-            return self.caption 
+        return self.caption 
 
 
 class Privacy_policy(models.Model):
@@ -194,5 +157,5 @@ class Privacy_policy(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     def __str__(self):
-            return self.name 
+        return self.name 
 
