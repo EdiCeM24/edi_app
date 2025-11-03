@@ -24,30 +24,18 @@ class BlogVid(models.Model):
     pass  
 
 
-class UserProfile(models.Model):
-     
-        def clean(self):
-           if not self.username.isalnum():
-              raise ValidationError('Username should only contain alphanumeric characters.')
+class UserProfile(models.Model):   
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    name = models.CharField(max_length=30, blank=True, null=True)
+    location = models.CharField(max_length=200, blank=True, null=True)
+    profile = models.ImageField(upload_to='vue', blank=True, null=True)
+    website = models.URLField(blank=True, null=True)
+    github = models.URLField(blank=True, null=True)
+    twitter = models.URLField(blank=True, null=True)
+    linkedin = models.URLField(blank=True, null=True)
+       
+    
         
-        user = models.OneToOneField(User, on_delete=models.CASCADE)
-        name = models.CharField(max_length=30, blank=True, null=True)
-        location = models.CharField(max_length=200, blank=True, null=True)
-        last_login_ip = models.GenericIPAddressField(blank=True, null=True)
-        email = models.EmailField(
-            max_length=25,
-            validators=[EmailValidator],
-            unique=True
-        )
-        password1 = models.CharField(
-            max_length=12,
-            validators=[MinLengthValidator(4)]
-        )
-        password2 = models.CharField(
-            max_length=12,
-            validators=[MinLengthValidator(4)]
-        )
-        
-        def __str__(self):
-            return self.user.username 
+    def __str__(self):
+        return f"{self.user.username}'s profile"
 

@@ -1,3 +1,128 @@
 @import "flowbite/src/themes/default";
 
 
+/** Reserved for custom styles **/
+
+.login_icon {
+        margin-top: -40%;
+        position: absolute;
+        top: 75%;
+    }
+    .login_input {
+        width: 80%;
+    }
+    
+ /** PASSWORD RESET DONE **/
+    .login-page-pass {
+        margin-top: 50% !important;
+    }
+.btn-password-reset {
+        padding: 0px 10px;
+        font-size: 10px;
+        width: 90%;
+        margin-left: -4%;
+    } 
+    .login-box-pass {
+        display: block;
+        align-items: center;
+        justify-content: center;
+        margin: 10px auto;
+        margin-left: -35% !important;
+    }
+    .loxus-pass {
+        margin-left: -10%;
+    }
+
+/** PASSWORD RESET DONE **/
+    .login-page-pass {
+        margin-top: 50% !important;
+    }
+    .header {
+        margin-top: -40%;
+        margin-bottom: 4rem;
+    }
+    .content {
+        margin-top: -3%;
+        margin-left: 3%;
+    }
+    .login-box-pass {
+        display: block;
+        align-items: center;
+        justify-content: center;
+        margin: 10px auto;
+        margin-left: 15%;
+    }
+    .loxus-pass {
+        margin-left: -10%;
+    }
+    .login-page-pass {
+        margin-top: 20%;
+    }
+
+    /** LOGIN PAGE **/
+    .login_box {
+        display: block;
+        margin-left: -35%;
+    }
+    .login-input {
+        width: 80%;
+    }
+    .loxus_login {
+        display: flex;
+        flex-direction: column;
+        margin-left: -20%;
+        line-height: 2;
+    }
+    .login_btn {
+        padding: 10px 10px 12px;
+        margin-left: 2%;
+    }
+    .login_icon {
+        margin-top: 20% !important;
+        position: absolute;
+        top: 25%;
+        left: 13%;
+    }
+
+
+    /** SIGNUP PAGE **/
+    #register-btn {
+        margin-left: 2%;
+        padding: 10px 10px;
+    }
+    .signup-form {
+        display: flex;
+        flex-direction: column;
+        margin-left: -7%;
+    }
+    .login-box {
+        margin-left: -15%;
+    }
+    .login-box input {
+        width: 85%;
+        outline: none;
+        border: none;
+        border-bottom: #3B82F6 2px solid;
+        background-color: #eee;
+    }
+    .loxus {
+        margin-left: 2%;
+        gap: 20%;
+    }
+    .signup-contents {
+        display: grid;
+        flex-direction: column;
+        margin-left: 7%;
+    }
+    .signup-h2 {
+        margin-bottom: 10%;
+    }
+    /** LOGIN AND SIGNUP PAGE **/
+    #form-control {
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.8);
+        filter: drop-shadow(#eee, 3px 5px 10px);
+        z-index: 10;
+    }
+    .login-page {
+        margin-top: 30%;
+    }

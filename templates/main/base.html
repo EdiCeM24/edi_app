@@ -61,12 +61,12 @@
               label: '# of Votes',
               data: {{data|safe}},
               backgroundColor: [
-                   'red', 'blue', 'green', 'cyan', 'orange', 'pink', 'indigo', 'gray', 'purple', 'yellow', 'brown', 'lime'
+                   'red', 'blue', 'green', 'cyan', 'orange', 'pink', 'indigo', 'gray', 'purple', 'yellow', 'brown', 'lime', 'salmon', 'silver'
               ],
               borderWidth: 1,
               label: 'Label'
             }],
-            labels: {{labels|safe}},
+            labels: {{labels|safe}}, {{ labels.formatted_score }}
           },
           options: {
             responsive: true,

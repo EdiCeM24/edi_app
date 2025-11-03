@@ -37,10 +37,10 @@ DB_PORT = os.getenv('DB_PORT')
 
 # For allauth configuration
 GITHUB_CLIENT_ID = str(os.getenv('GITHUB_CLIENT_ID'))
-GITHUB_CLIENT_SECRET = str(os.getenv('GITHUB_CLIENT_SECRET'))
+GITHUB_SECRET_KEY = str(os.getenv('GITHUB_CLIENT_SECRET'))
 
 GOOGLE_CLIENT_ID = str(os.getenv('GOOGLE_CLIENT_ID'))
-GOOGLE_CLIENT_SECRET = str(os.getenv('GOOGLE_CLIENT_SECRET'))
+GOOGLE_SECRET_KEY = str(os.getenv('GOOGLE_CLIENT_SECRET'))
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -48,8 +48,20 @@ SECRET_KEY = str(os.getenv('DJANGO_SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+#os.getenv('DEBUG') == 'True'
+# print(f'DEBUG: {DEBUG}')
 
-ALLOWED_HOSTS = []
+allowed_hosts = os.getenv('ALLOWED_HOSTS', '')
+# print(f'ALLOWED_HOSTS: {allowed_hosts}')
+
+if DEBUG:
+    ALLOWED_HOSTS = []
+else:
+    allowed_hosts = os.getenv('ALLOWED_HOSTS', '')    
+    ALLOWED_HOSTS = [host.strip() for host in allowed_hosts.split(',') if host.strip()]
+    if not ALLOWED_HOSTS:
+        ALLOWED_HOSTS = ['*']
+#print(f'ALLOWED_HOSTS (final): {ALLOWED_HOSTS}')
 
 
 # Application definition
@@ -91,7 +103,7 @@ SOCIALACCOUNT_PROVIDERS = {
         # credentials, or list them here:
         'APP': {
             'client_id': 'GOOGLE_CLIENT_ID',
-            'secret': 'GOOGLE_CLIENT_SECRET',
+            'secret': 'GOOGLE_SECRET_KEY',
             'key': ''
         }
     },
@@ -99,7 +111,7 @@ SOCIALACCOUNT_PROVIDERS = {
          "VERIFIED_EMAIL": True,
         'APP': {
             'client_id': 'GITHUB_CLIENT_ID',
-            'secret': 'GITHUB_CLIENT_SECRET',
+            'secret': 'GITHUB_SECRET_KEY',
             'key': ''
         }
     }

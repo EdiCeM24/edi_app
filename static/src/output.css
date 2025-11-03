@@ -1211,8 +1211,8 @@
   .mt-\[-15\%\] {
     margin-top: -15%;
   }
-  .mt-\[-25\%\] {
-    margin-top: -25%;
+  .mt-\[-20\%\] {
+    margin-top: -20%;
   }
   .mt-\[-29\%\] {
     margin-top: -29%;
@@ -1848,6 +1848,9 @@
   }
   .h-\[calc\(100\%-1rem\)\] {
     height: calc(100% - 1rem);
+  }
+  .h-full {
+    height: 100%;
   }
   .max-h-1\/2 {
     max-height: calc(1/2 * 100%);
@@ -3767,6 +3770,11 @@
       display: flex;
     }
   }
+  .sm\:hidden {
+    @media (width >= 40rem) {
+      display: none;
+    }
+  }
   .sm\:w-\[40\%\] {
     @media (width >= 40rem) {
       width: 40%;
@@ -3873,6 +3881,11 @@
   .md\:ml-\[40\%\] {
     @media (width >= 48rem) {
       margin-left: 40%;
+    }
+  }
+  .md\:hidden {
+    @media (width >= 48rem) {
+      display: none;
     }
   }
   .md\:w-\[55\%\] {
@@ -4584,7 +4597,7 @@ body {
 }
 @media screen and (max-width: 455px) {
   .nav-logo {
-    margin-left: -25% !important;
+    margin-left: -20% !important;
   }
   .nav-image-links, .uil-home-icons, .navLinks {
     margin-right: 30px !important;
@@ -4607,8 +4620,14 @@ body {
   }
   .sidebar {
     background: linear-gradient(to right, #0e0e5c, purple, orange);
-    margin-top: 60% !important;
+    margin-top: 63% !important;
     cursor: pointer;
+  }
+  .hello-world-text {
+    margin-top: 20%;
+  }
+  .social-links2 {
+    margin-top: -3%;
   }
   .download-btn {
     position: absolute;
@@ -4631,24 +4650,23 @@ body {
     cursor: pointer;
   }
   .pics-img {
-    margin-top: 25% !important;
+    margin-top: 45% !important;
   }
-  .login_icon {
-    margin-top: -40%;
-    position: absolute;
-    top: 75%;
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
   }
-  .login_input {
-    width: 80%;
+  .polygon {
+    clip-path: polygon(100% 0, 0 1%, 98% 100%);
   }
   .texts {
     width: 85%;
     padding: 8px;
     border-radius: 4px;
     background: linear-gradient(to bottom right, #8B5CF6, #3B82F6, #DD6B20);
-  }
-  .login-page-pass {
-    margin-top: 50% !important;
   }
   .header {
     margin-top: -40%;
@@ -4692,22 +4710,6 @@ body {
     left: 0;
     border-radius: 100px;
     transition: 100ms;
-  }
-  .btn-password-reset {
-    padding: 0px 10px;
-    font-size: 10px;
-    width: 90%;
-    margin-left: -4%;
-  }
-  .login-box-pass {
-    display: block;
-    align-items: center;
-    justify-content: center;
-    margin: 10px auto;
-    margin-left: -35% !important;
-  }
-  .loxus-pass {
-    margin-left: -10%;
   }
   .contact-success {
     margin-top: 50% !important;
@@ -4797,6 +4799,50 @@ body {
     transition: 0.3s ease-in-out;
     transition-duration: 100ms;
   }
+  .hello-world-text {
+    margin-top: 30%;
+  }
+  .social-links2 {
+    margin-top: -3%;
+  }
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+  }
+  .polygon {
+    clip-path: polygon(100% 0, 0 1%, 98% 100%);
+  }
+  .download-btn {
+    position: absolute;
+    margin-top: 50% !important;
+    top: 40%;
+    margin-bottom: 5%;
+    margin-left: 20%;
+  }
+  .links-text-control {
+    margin-top: 20% !important;
+  }
+  .btn {
+    background-color: #4F46E5;
+  }
+  .btn.active {
+    background-color: #7C3AED;
+    color: #fff;
+  }
+  .texts a {
+    cursor: pointer;
+  }
+  .pics-img {
+    margin-top: 45% !important;
+  }
+  .login_icon {
+    margin-top: -40%;
+    position: absolute;
+    top: 75%;
+  }
   .text {
     margin-top: 10%;
   }
@@ -4860,9 +4906,6 @@ body {
   .links-text-control {
     margin-top: -35%;
   }
-  .pics-img {
-    margin-top: -6%;
-  }
   .photo-text {
     margin-top: 40%;
     width: 30%;
@@ -4872,7 +4915,7 @@ body {
     padding: 20px auto;
   }
   .photo img {
-    margin-top: 40%;
+    margin-top: 45%;
     width: 20%;
     height: 20%;
     border-radius: 50%;
@@ -4891,7 +4934,7 @@ body {
   }
   .download-btn {
     position: absolute;
-    margin-top: 60%;
+    margin-top: 66%;
     top: 40%;
     margin-bottom: 5%;
     margin-left: 100%;
@@ -4917,92 +4960,6 @@ body {
     border-radius: 4px;
     font-size: 15px;
     background: linear-gradient(to bottom right, #8B5CF6, #3B82F6, #DD6B20);
-  }
-  .login-page-pass {
-    margin-top: 50% !important;
-  }
-  .header {
-    margin-top: -40%;
-    margin-bottom: 4rem;
-  }
-  .content {
-    margin-top: -3%;
-    margin-left: 3%;
-  }
-  .login-box-pass {
-    display: block;
-    align-items: center;
-    justify-content: center;
-    margin: 10px auto;
-    margin-left: 15%;
-  }
-  .loxus-pass {
-    margin-left: -10%;
-  }
-  .login-page-pass {
-    margin-top: 20%;
-  }
-  .login_box {
-    display: block;
-    margin-left: -35%;
-  }
-  .login-input {
-    width: 80%;
-  }
-  .loxus_login {
-    display: flex;
-    flex-direction: column;
-    margin-left: -20%;
-    line-height: 2;
-  }
-  .login_btn {
-    padding: 10px 10px 12px;
-    margin-left: 2%;
-  }
-  .login_icon {
-    margin-top: 20% !important;
-    position: absolute;
-    top: 25%;
-    left: 13%;
-  }
-  #register-btn {
-    margin-left: 2%;
-    padding: 10px 10px;
-  }
-  .signup-form {
-    display: flex;
-    flex-direction: column;
-    margin-left: -7%;
-  }
-  .login-box {
-    margin-left: -15%;
-  }
-  .login-box input {
-    width: 85%;
-    outline: none;
-    border: none;
-    border-bottom: #3B82F6 2px solid;
-    background-color: #eee;
-  }
-  .loxus {
-    margin-left: 2%;
-    gap: 20%;
-  }
-  .signup-contents {
-    display: grid;
-    flex-direction: column;
-    margin-left: 7%;
-  }
-  .signup-h2 {
-    margin-bottom: 10%;
-  }
-  #form-control {
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.8);
-    filter: drop-shadow(#eee, 3px 5px 10px);
-    z-index: 10;
-  }
-  .login-page {
-    margin-top: 30%;
   }
   .contact-success {
     margin-top: 40% !important;
@@ -5363,6 +5320,16 @@ body {
   }
   .pics-img img {
     width: 100%;
+  }
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+  }
+  .polygon {
+    clip-path: polygon(100% 0, 0 1%, 98% 100%);
   }
   .main-download {
     margin-top: -8%;

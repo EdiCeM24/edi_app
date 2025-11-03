@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
-#from apps.userprofile.models import Profile
+from .models import UserProfile
 
 
 def blog(request):
@@ -16,7 +16,7 @@ def blog(request):
 @login_required
 def profile_view(request):
     if request.method == 'POST':
-        profile = Profile(data=request.POST)
+        profile = UserProfile(data=request.POST)
         image = request.POST.get('image')
         profile.image = image
         if profile.is_valid():
@@ -25,9 +25,9 @@ def profile_view(request):
                 return redirect('home')
     else:
         messages.error(request, 'Profile image is not uploaded!')
-        return redirect('profile')
+        return redirect('register')
         
     
-    return render(request, 'home/profile.html', {
-        'profile': image 
+    return render(request, 'auth/register.html', {
+        'profile': profile, 
         })    # context is not passed again.    

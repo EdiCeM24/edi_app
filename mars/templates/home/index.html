@@ -10,8 +10,8 @@
 
   <div class="main-page flex items-center justify-evenly mt-[10%] gap-[12%]">
     
-    <div class="sidebar1 mt-[25%] ml-[4%]">
-      <div class="sidebar mt-[-25%] gap-12 lg:bg-amber-500 fixed z-50">
+    <div class="sidebar1 mt-[30%] ml-[4%]">
+      <div class="sidebar mt-[-20%] gap-12 lg:bg-amber-500 fixed z-50">
         <a href="{% url 'home' %}" class='rounded-full  flex items-center gap-4 hover:text-white' title="Home"><i class='bx bx-home btn active bg-indigo-600 focus:ring-4 rounded-full text-xl items-center justify-center p-2 font-semibold w-10 h-10' id="btn-icon-1" title="Home"></i></a>
         <a href="{% url 'about' %}" class='rounded-full flex items-center gap-4 hover:text-white' title="About"><i class='bx bx-user btn bg-purple-600 rounded-full text-xl items-center justify-center p-2 font-semibold w-10 h-10' id="btn-icon-2" title="About"></i></a>
         <a href="{% url 'contact' %}" class='rounded-full flex items-center gap-4 hover:text-white' title="Contact"><i class='bx bx-envelope btn bg-purple-600 rounded-full text-xl items-center justify-center p-2 font-semibold w-10 h-10' id="btn-icon-3" title="Contact"></i></a>
@@ -20,7 +20,17 @@
         <a href="{% url 'services' %}" class='rounded-full flex items-center gap-4 hover:text-white' title="Services"><i class='bx bx-server btn bg-purple-600 rounded-full text-xl items-center justify-center p-2 font-semibold w-10 h-10' id="btn-icon-6" title="Services"></i></a>
       </div>
     </div>
-   
+    
+    <div class="hello-world-text ml-[-4%] mt-[8%] absolute top-0 mb-3 p-4 sm:hidden md:hidden">
+      {% if user.is_authenticated %}
+          <p class="text-base font-semibold font-serif">Welcome {{ user.username }}!</p>
+          {% else %} 
+              <div class="block items-center justify-evenly gap-[10%]">
+                  <p class="ml-[35%] mb-2 text-xl font-semibold text-slate-800 font-serif">Welcome!</p>
+                            
+              </div>
+      {% endif %}
+    </div>
 
     <div class="block h-2.5 mt-[-15%]">
       <div class="links-text-control block h-12">
@@ -33,20 +43,25 @@
               <a href="https://twitter.com/edi_cem24"><i class='bx bxl-twitter text-2xl rounded-full w-10 h-10 bg-green-100 p-2 hover:text-fuchsia-600'></i></a> 
               <a href="https://facebook.com/Eidiong Marcus"><i class='bx bxl-facebook text-2xl rounded-full w-10 h-10 bg-green-100 p-2 hover:text-fuchsia-600 text-black'></i></a>
               <a href="https://linkedin.com/in/cletus-marcus"><i class='bx bxl-linkedin text-2xl rounded-full w-10 h-10 bg-green-100 p-2 hover:text-fuchsia-600'></i></a> 
-              <a class="mt-10 ml-2 bg-indigo-600 p-1 rounded text-white border-0 hover:text-sky-500 transition-shadow duration-150 ease-in-out" href="{% url 'blog' %}">Blog</a>
+              <a class="social-links2 mt-8 ml-2 bg-indigo-600 p-1 rounded text-white border-0 hover:text-sky-500 transition-shadow duration-150 ease-in-out" href="{% url 'blog' %}">Blog</a>
           </div>
           <span class="text-container text-xl mb-36  font-semibold"></span>
       </div>
     </div>
-
-    <div class="pics-img align-bottom items-center mt-[20%]">
+    
+    <div class="pics-img align-bottom items-center mt-[25%]">
       <img class="main-image items-end cursor-pointer lg:w-[100%] mt-[40%] hover:sepia-50 rounded-lg bg-cover bg-right bg-local" src="{% static 'assets/images/edi.png' %}" alt="Photo">
     </div>
     
   </div>
-
+  
+  <div class="overlay relative top-0 right-0 w-full h-full bg-black bg-opacity-50">
+    <div class="polygon"></div>
+  </div>
+  
+  <div class=""></div> 
   <section class="main-download ">
-    <div class="mt-[6%] ml-[20%]">
+    <div class="mt-[12%] ml-[20%]">
       <a href="{% static 'assets/img/best_resume.pdf' %}" download><i class='bx bxs-download text-3xl text-blue-700 bg-blue-300 rounded-bl-full p-4' title="download"></i>Resume</a>
     </div>
 

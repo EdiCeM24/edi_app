@@ -134,8 +134,8 @@ class Skill(models.Model):
     name = models.CharField(max_length=200)
     numInPercentage = models.IntegerField()
      
-    def __str__(self):
-        return self.name   
+    def formatted_score(self):
+        return f"{self.numInPercentage}%"   
     
 
 class Term(models.Model):

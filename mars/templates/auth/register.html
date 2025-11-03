@@ -27,6 +27,9 @@
 
       <form method="post" class="bg-amber-50 p-8 rounded-md shadow-2xl">
             {% csrf_token %}  
+            <div class="">
+                <input type="file" name="profile" class="bg-slate-800 p-2 w-[40%] rounded-md outline-none border-t-none border-l-0 border-r-0 border-b-2 text-white">
+            </div>
             <div class="flex items-center justify-evenly bg-gray-50 p-[2%] gap-1 rounded-md">
                 <input type="text" class="bg-slate-800 p-2 w-[40%] rounded-md outline-none border-t-none border-l-0 border-r-0 border-b-2 text-white" name="firstName" id="firstName" placeholder="Enter your first name" required> 
                 <input type="text" class="bg-slate-800 p-2 w-[40%] rounded-md outline-none border-t-none border-l-0 border-r-0 border-b-2 text-white" name="lastName" id="firstName" placeholder="Enter your last name" required> 
@@ -49,18 +52,20 @@
             <p class="ml-[43%] text-xl font-semibold p-2 mt-3 mb-3 text-rose-600">or</p>
             <div class="ml-[-4%] mt-3 mb-3 p-4">
                  {% if user.is_authenticated %}
-                    <p class="text-base font-semibold font-serif">Welcome {{ user.username }}</p>
+                    <p class="text-base font-semibold font-serif ml-[30%]">Welcome {{ user.username }}</p>
                     {% else %} 
                        <div class="block items-center justify-evenly gap-[10%]">
                           <p class="ml-[35%] mb-2 text-xl font-semibold text-slate-800 font-serif">Sign Up with</p>
                             
                         </div>
+                        <div class="flex items-center mb-3 justify-evenly gap-[10%]">
+                          {% include 'includes/socials_accounts.html' %}
+                        </div>
                 {% endif %}
-                <div class="flex items-center mb-3 justify-evenly gap-[10%]">
-                  {% include 'includes/socials_accounts.html' %}
-                </div>
             </div>
-
+            <div class="flex nowrap items-center justify-center mt-2 mb-3">
+              <p class="ml-[45%] text-sm">We protect your privacy <a href="{% url 'privacy' %}" class="text-blue-800 text-sm">Learn how.</a></p>
+            </div>
         </form>
    </div>
    {% endblock content %}

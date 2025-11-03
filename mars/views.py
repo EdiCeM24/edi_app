@@ -19,6 +19,8 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.conf import settings
 from django.contrib.auth import authenticate, login as auth_login, logout
+from blogs.models import UserProfile
+
 
 
 @login_required(login_url='/login/')
@@ -30,7 +32,7 @@ def home(request):
 def about(request):
     labels = []
     data = []
-    product = Skill.objects.order_by('numInPercentage')[:12]
+    product = Skill.objects.order_by('numInPercentage')[:14]
     for skills in product:
         labels.append(skills.name)
         data.append(skills.numInPercentage)
@@ -108,6 +110,7 @@ def registerView(request):
         email = request.POST.get('email').strip()
         password = request.POST.get('password1').strip()
         password2 = request.POST.get('password2').strip()
+        
         
         user_data_has_error = False
 
